@@ -15,8 +15,10 @@ type ColorTheme = {
 const colorTheme: ColorTheme = {
   primary: css`
     background: ${colors.secondary};
+    color: ${colors.white};
   `,
   secondary: css`
+    color: ${colors.black.lighten[1]};
     background: ${colors.primary};
   `
 };
@@ -30,6 +32,7 @@ export const Button = ({
     padding: 10px 14px;
     font-size: 1.6rem;
     border-radius: 8px;
+    font-weight: 600;
     box-shadow: 8px 8px 16px #af9e43, -8px -8px 16px #ffff73;
     transition: 0.3s;
 
