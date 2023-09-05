@@ -11,6 +11,7 @@ export const Card = ({ children }: CardProps) => {
 };
 
 const card = css`
+  font-size: 2rem;
   max-width: 1024px;
   margin: 0 auto;
   padding: 40px 116px;
