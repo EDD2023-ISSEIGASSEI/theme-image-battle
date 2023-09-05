@@ -7,12 +7,15 @@ import {
   createRoutesFromElements
 } from "react-router-dom";
 import Home from "./Home";
-import "./reset.css";
+import "./styles/reset.css";
+import "./styles/global.css";
+import { SamplePage } from "./pages/sample";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Home />} />
+      <Route path="sample" element={<SamplePage />} />
     </Route>
   )
 );
