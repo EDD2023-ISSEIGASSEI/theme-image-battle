@@ -1,6 +1,6 @@
 export const colors = {
   primary: "var(--primary)",
-
+  secondary: "var(--secondary)",
   blue: "var(--blue)",
   red: "var(--red)",
   green: "var(--green)",
