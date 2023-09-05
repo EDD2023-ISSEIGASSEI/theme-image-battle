@@ -1,0 +1,35 @@
+:root {
+  --primary: #ecd55b;
+
+  --blue: #29a3bf;
+
+  --red: #eb5353;
+
+  --green: #4db56a;
+
+  --black: #212121;
+  --black-lighten-1: #434343;
+  --black-lighten-2: #bebebe;
+  --black-lighten-3: #e0e0e0;
+  --black-lighten-4: #efefef;
+  --black-lighten-5: #fafafa;
+
+  --white: #ffffff;
+
+  color: var(--black);
+
+  --montserrat: "Montserrat";
+  --noto-sans-jp: "Noto Sans JP";
+  --noto-serif-jp: "Noto Serif JP";
+
+  font-family: var(--noto-sans-jp), sans-serif;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  --z-index--top: 9999;
+  --z-index--high: 100;
+  --z-index--medium: 10;
+  --z-index--low: 5;
+  --z-index--bottom: -1;
+}
