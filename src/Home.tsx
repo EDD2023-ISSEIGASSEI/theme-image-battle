@@ -1,12 +1,11 @@
-import { css } from "@emotion/react";
+import { Button } from "ui-neumorphism";
+import "ui-neumorphism/dist/index.css";
 
 function Home() {
   return (
-    <div
-      css={css`
-        background: pink;
-      `}
-    >
+    <div>
+      {/* @ts-ignore */}
+      <Button rounded>default</Button>
       hello world
     </div>
   );
