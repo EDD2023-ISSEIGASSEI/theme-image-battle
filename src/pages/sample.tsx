@@ -5,6 +5,7 @@ import { TextInput } from "../components/TextInput";
 import { Button } from "../components/Button";
 import { Divider } from "../components/Divider";
 import { USER_STATUS_LIST } from "../data";
+import { CheckTag } from "~/components/tags/CheckTag";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -25,6 +26,8 @@ export const SamplePage = () => {
           ))}
         </ul>
         <Divider direction="vertical" />
+        <CheckTag isChecked />
+        <CheckTag />
       </div>
     </div>
   );
