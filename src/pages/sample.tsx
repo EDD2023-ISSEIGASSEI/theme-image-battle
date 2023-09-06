@@ -6,6 +6,7 @@ import { Button } from "../components/Button";
 import { Divider } from "../components/Divider";
 import { USER_STATUS_LIST } from "../data";
 import { CheckTag } from "~/components/tags/CheckTag";
+import { ParentTag } from "~/components/tags/ParentTag";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -28,6 +29,7 @@ export const SamplePage = () => {
         <Divider direction="vertical" />
         <CheckTag isChecked />
         <CheckTag />
+        <ParentTag />
       </div>
     </div>
   );
