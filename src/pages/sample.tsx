@@ -3,6 +3,8 @@ import { colors } from "../styles/themes/colors";
 import { Card } from "../components/Card";
 import { TextInput } from "../components/TextInput";
 import { Button } from "../components/Button";
+import { Divider } from "../components/Divider";
+import { USER_STATUS_LIST } from "../data";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -15,6 +17,15 @@ export const SamplePage = () => {
         Buttonコンポーネントです
       </Button>
       <Button color="secondary">Button（secondary）コンポーネントです</Button>
+      <Divider direction="horizontal" />
+      <div css={userList}>
+        <ul>
+          {USER_STATUS_LIST.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+        <Divider direction="vertical" />
+      </div>
     </div>
   );
 };
@@ -31,4 +42,9 @@ const container = css`
   height: 100vh;
   padding: 80px;
   background: ${colors.primary};
+`;
+
+const userList = css`
+  display: flex;
+  gap: 20px;
 `;
