@@ -1,12 +1,12 @@
-import { Button } from "ui-neumorphism";
-import "ui-neumorphism/dist/index.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
     <div>
       {/* @ts-ignore */}
-      <Button rounded>default</Button>
       hello world
+      <a href="sample">いいい</a>
+      <Link to="sample">ああああ</Link>
     </div>
   );
 }
