@@ -7,6 +7,7 @@ import { Divider } from "../components/Divider";
 import { USER_STATUS_LIST } from "../data";
 import { CheckTag } from "~/components/tags/CheckTag";
 import { ParentTag } from "~/components/tags/ParentTag";
+import { UserIcon } from "~/components/icons/UserIcon";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -30,6 +31,8 @@ export const SamplePage = () => {
         <CheckTag isChecked />
         <CheckTag />
         <ParentTag />
+        <UserIcon />
+        <UserIcon imageUrl="/public/vite.svg" />
       </div>
     </div>
   );
