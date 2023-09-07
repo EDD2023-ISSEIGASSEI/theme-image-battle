@@ -8,6 +8,7 @@ import { USER_STATUS_LIST } from "../data";
 import { CheckTag } from "~/components/tags/CheckTag";
 import { ParentTag } from "~/components/tags/ParentTag";
 import { UserIcon } from "~/components/icons/UserIcon";
+import { OwnerTag } from "~/components/tags/OwnerTag";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -27,12 +28,15 @@ export const SamplePage = () => {
             <li key={user.id}>{user.name}</li>
           ))}
         </ul>
-        <Divider direction="vertical" />
+      </div>
+      <Divider direction="vertical" />
+      <div css={tagAndIconList}>
         <CheckTag isChecked />
         <CheckTag />
         <ParentTag />
         <UserIcon />
-        <UserIcon imageUrl="/public/vite.svg" />
+        <UserIcon imageUrl="/src/assets/react.svg" />
+        <OwnerTag />
       </div>
     </div>
   );
@@ -53,6 +57,11 @@ const container = css`
 `;
 
 const userList = css`
+  display: flex;
+  gap: 20px;
+`;
+
+const tagAndIconList = css`
   display: flex;
   gap: 20px;
 `;
