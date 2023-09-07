@@ -9,6 +9,7 @@ import { CheckTag } from "~/components/tags/CheckTag";
 import { ParentTag } from "~/components/tags/ParentTag";
 import { UserIcon } from "~/components/icons/UserIcon";
 import { OwnerTag } from "~/components/tags/OwnerTag";
+import { SelectField } from "~/components/SelectField";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -38,6 +39,10 @@ export const SamplePage = () => {
         <UserIcon imageUrl="/src/assets/react.svg" />
         <OwnerTag />
       </div>
+      <SelectField
+        optionList={["テスト", "こんにちは", "あああ"]}
+        placeholder="最大人数"
+      />
     </div>
   );
 };
@@ -51,7 +56,7 @@ const container = css`
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  height: 100vh;
+  height: 120vh;
   padding: 80px;
   background: ${colors.primary};
 `;
