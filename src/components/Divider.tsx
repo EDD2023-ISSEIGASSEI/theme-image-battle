@@ -18,7 +18,7 @@ const directionTheme: DirectionTheme = {
   `,
   horizontal: css`
     width: 100%;
-    height: 6px;
+    min-height: 6px;
   `
 };
 

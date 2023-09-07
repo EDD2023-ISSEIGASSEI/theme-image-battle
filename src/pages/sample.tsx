@@ -28,8 +28,8 @@ export const SamplePage = () => {
             <li key={user.id}>{user.name}</li>
           ))}
         </ul>
+        <Divider direction="vertical" />
       </div>
-      <Divider direction="vertical" />
       <div css={tagAndIconList}>
         <CheckTag isChecked />
         <CheckTag />
