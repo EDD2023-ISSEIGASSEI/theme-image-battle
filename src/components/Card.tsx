@@ -16,9 +16,10 @@ export const Card = ({ children, ...props }: CardProps) => {
 
 const card = css`
   font-size: 2rem;
-  max-width: 1024px;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 40px 116px;
+  padding: 40px 80px;
   border-radius: 20px;
   background: ${colors.primary};
   box-shadow: 8px 8px 16px #af9e43, -8px -8px 16px #ffff73;
