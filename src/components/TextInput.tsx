@@ -1,12 +1,13 @@
 import { css } from "@emotion/react";
 import { colors } from "../styles/themes/colors";
+import React, { ComponentPropsWithRef } from "react";
 
-type TextInputProps = {
+interface TextInputProps extends ComponentPropsWithRef<"input"> {
   placeholder: string;
-};
+}
 
-export const TextInput = ({ placeholder }: TextInputProps) => {
-  return <input type="text" placeholder={placeholder} css={input} />;
+export const TextInput = ({ placeholder, ...props }: TextInputProps) => {
+  return <input type="text" placeholder={placeholder} css={input} {...props}/>;
 };
 
 const input = css`
@@ -26,6 +27,6 @@ const input = css`
 
   &::placeholder {
     color: ${colors.black.lighten[2]};
-    font-size: 1.5em;
+    font-size: 1em;
   }
 `;

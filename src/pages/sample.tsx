@@ -14,6 +14,7 @@ import { Timer } from "~/components/Timer";
 import { useEffect, useState } from "react";
 import { RoomCard } from "~/components/RoomCard";
 import { UserStatus } from "~/components/UserStatus";
+import { LoginFormCard } from "~/components/cards/LoginFormCard";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -74,6 +75,8 @@ export const SamplePage = () => {
         <RoomCard name="つルーム" id="34376648238" currentPeople={3} />
         <RoomCard name="つルーム" id="34376648238" currentPeople={7} />
       </div>
+      <h2 css={title}>フォームカードコンポーネント</h2>
+      <LoginFormCard />
     </div>
   );
 };
