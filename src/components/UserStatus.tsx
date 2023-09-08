@@ -3,7 +3,7 @@ import { CheckTag } from "./tags/CheckTag";
 import { ParentTag } from "./tags/ParentTag";
 import { colors } from "~/styles/themes/colors";
 
-export type UserStatus = {
+export type UserStatusProps = {
   id: string;
   name: string;
   score: number;
@@ -11,7 +11,13 @@ export type UserStatus = {
   role: "親" | "子";
 };
 
-export const UserStatus = ({ id, name, score, isAction, role }: UserStatus) => {
+export const UserStatus = ({
+  id,
+  name,
+  score,
+  isAction,
+  role
+}: UserStatusProps) => {
   console.log("id: ", id);
 
   return (
