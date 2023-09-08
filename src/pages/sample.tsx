@@ -10,9 +10,25 @@ import { ParentTag } from "~/components/tags/ParentTag";
 import { UserIcon } from "~/components/icons/UserIcon";
 import { OwnerTag } from "~/components/tags/OwnerTag";
 import { SelectField } from "~/components/SelectField";
+import { Timer } from "~/components/Timer";
+import { useEffect, useState } from "react";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
+  const [time, setTime] = useState(3);
+
+  useEffect(() => {
+    const id = setTimeout(() => {
+      setTime((prev) => prev - 1);
+    }, 1000);
+
+    // 開発環境だけstrictModeがあるからちょっと変になる
+    if (time < 0) {
+      clearTimeout(id);
+      setTime(0);
+    }
+  }, [time]);
+
   return (
     <div css={container}>
       <h1 css={title}>コンポーネント確認ページ</h1>
@@ -43,6 +59,7 @@ export const SamplePage = () => {
         optionList={["テスト", "こんにちは", "あああ"]}
         placeholder="最大人数"
       />
+      <Timer time={time} />
     </div>
   );
 };
