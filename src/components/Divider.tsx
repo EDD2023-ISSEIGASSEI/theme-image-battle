@@ -14,7 +14,7 @@ type DirectionTheme = {
 const directionTheme: DirectionTheme = {
   vertical: css`
     width: 6px;
-    height: 110%;
+    height: 100%;
   `,
   horizontal: css`
     width: 100%;
