@@ -1,4 +1,6 @@
-export const USER_STATUS_LIST = [
+import { UserStatus } from "~/components/UserStatus";
+
+export const USER_STATUS_LIST: UserStatus[] = [
   {
     id: "fd;qb3-7gna;ojef",
     name: "ほげ太郎",
