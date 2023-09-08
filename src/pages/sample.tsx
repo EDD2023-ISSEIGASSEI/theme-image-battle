@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { RoomCard } from "~/components/RoomCard";
 import { UserStatus } from "~/components/UserStatus";
 import { LoginFormCard } from "~/components/cards/LoginFormCard";
+import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -67,7 +68,12 @@ export const SamplePage = () => {
         <OwnerTag />
       </div>
       <SelectField
-        optionList={["テスト", "こんにちは", "あああ"]}
+        optionList={[
+          { value: 1, label: "1人" },
+          { value: 2, label: "2人" },
+          { value: 3, label: "3人" },
+          { value: 4, label: "4人" },
+        ]}
         placeholder="最大人数"
       />
       <Timer time={time} />
@@ -77,6 +83,7 @@ export const SamplePage = () => {
       </div>
       <h2 css={title}>フォームカードコンポーネント</h2>
       <LoginFormCard />
+      <CreateRoomFormCard />
     </div>
   );
 };
