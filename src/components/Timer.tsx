@@ -1,11 +1,11 @@
 import { css } from "@emotion/react";
 import { colors } from "~/styles/themes/colors";
 
-type Timer = {
+type TimerProps = {
   time: number;
 };
 
-export const Timer = ({ time }: Timer) => {
+export const Timer = ({ time }: TimerProps) => {
   return <span css={timer}>{time}秒</span>;
 };
 
