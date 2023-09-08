@@ -12,10 +12,11 @@ import { OwnerTag } from "~/components/tags/OwnerTag";
 import { SelectField } from "~/components/SelectField";
 import { Timer } from "~/components/Timer";
 import { useEffect, useState } from "react";
+import { RoomCard } from "~/components/RoomCard";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
-  const [time, setTime] = useState(3);
+  const [time, setTime] = useState(60);
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -60,6 +61,10 @@ export const SamplePage = () => {
         placeholder="最大人数"
       />
       <Timer time={time} />
+      <div css={roomList}>
+        <RoomCard name="つルーム" id="34376648238" currentPeople={3} />
+        <RoomCard name="つルーム" id="34376648238" currentPeople={7} />
+      </div>
     </div>
   );
 };
@@ -73,7 +78,7 @@ const container = css`
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  height: 120vh;
+  height: 180vh;
   padding: 80px;
   background: ${colors.primary};
 `;
@@ -84,6 +89,11 @@ const userList = css`
 `;
 
 const tagAndIconList = css`
+  display: flex;
+  gap: 20px;
+`;
+
+const roomList = css`
   display: flex;
   gap: 20px;
 `;

@@ -1,13 +1,17 @@
 import { css } from "@emotion/react";
-import { ReactNode } from "react";
+import { ComponentPropsWithRef, ReactNode } from "react";
 import { colors } from "../styles/themes/colors";
 
-type CardProps = {
+interface CardProps extends ComponentPropsWithRef<"div"> {
   children: ReactNode;
-};
+}
 
-export const Card = ({ children }: CardProps) => {
-  return <div css={card}>{children}</div>;
+export const Card = ({ children, ...props }: CardProps) => {
+  return (
+    <div css={card} {...props}>
+      {children}
+    </div>
+  );
 };
 
 const card = css`
