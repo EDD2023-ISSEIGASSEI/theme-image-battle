@@ -62,7 +62,7 @@ export const SamplePage = () => {
         <CheckTag />
         <ParentTag />
         <UserIcon />
-        <UserIcon imageUrl="/src/assets/react.svg" />
+        <UserIcon imageUrl="/src/assets/images/react.png" />
         <OwnerTag />
       </div>
       <SelectField
