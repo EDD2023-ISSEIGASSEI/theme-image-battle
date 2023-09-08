@@ -5,8 +5,8 @@ type TextInputProps = {
   placeholder: string;
 };
 
-export const TextInput = ({ placeholder }: TextInputProps) => {
-  return <input type="text" placeholder={placeholder} css={input} />;
+export const TextInput = ({ placeholder, ...props }: TextInputProps) => {
+  return <input type="text" placeholder={placeholder} css={input} {...props}/>;
 };
 
 const input = css`
