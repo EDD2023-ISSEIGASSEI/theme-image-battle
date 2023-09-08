@@ -16,6 +16,7 @@ import { RoomCard } from "~/components/RoomCard";
 import { UserStatus } from "~/components/UserStatus";
 import { LoginFormCard } from "~/components/cards/LoginFormCard";
 import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
+import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -84,6 +85,7 @@ export const SamplePage = () => {
       <h2 css={title}>フォームカードコンポーネント</h2>
       <LoginFormCard />
       <CreateRoomFormCard />
+      <AuthOTPFormCard />
     </div>
   );
 };
