@@ -13,6 +13,7 @@ import { SelectField } from "~/components/SelectField";
 import { Timer } from "~/components/Timer";
 import { useEffect, useState } from "react";
 import { RoomCard } from "~/components/RoomCard";
+import { UserStatus } from "~/components/UserStatus";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -40,10 +41,18 @@ export const SamplePage = () => {
       </Button>
       <Button color="secondary">Button（secondary）コンポーネントです</Button>
       <Divider direction="horizontal" />
-      <div css={userList}>
-        <ul>
-          {USER_STATUS_LIST.map((user) => (
-            <li key={user.id}>{user.name}</li>
+      <div css={userListWrapper}>
+        <ul css={userList}>
+          {USER_STATUS_LIST.map((userStatus) => (
+            <li key={userStatus.id}>
+              <UserStatus
+                id={userStatus.id}
+                name={userStatus.name}
+                score={userStatus.score}
+                isAction={userStatus.isAction}
+                role={userStatus.role}
+              />
+            </li>
           ))}
         </ul>
         <Divider direction="vertical" />
@@ -78,12 +87,12 @@ const container = css`
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  height: 180vh;
+  height: 200vh;
   padding: 80px;
   background: ${colors.primary};
 `;
 
-const userList = css`
+const userListWrapper = css`
   display: flex;
   gap: 20px;
 `;
@@ -95,5 +104,11 @@ const tagAndIconList = css`
 
 const roomList = css`
   display: flex;
+  gap: 20px;
+`;
+
+const userList = css`
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 `;
