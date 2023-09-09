@@ -3,6 +3,7 @@ import { colors } from "~/styles/themes/colors";
 import { LoginPage } from "~/components/screens/LoginPage";
 import { StartPage } from "~/components/screens/StartPage";
 import { ExlanationOTPPage } from "~/components/screens/ExplanationOTPPage";
+import { AuthOTPPage } from "~/components/screens/AuthOTPPage";
 
 export const SampleScreenPage = () => {
   return (
@@ -10,6 +11,7 @@ export const SampleScreenPage = () => {
       <LoginPage />
       <StartPage />
       <ExlanationOTPPage />
+      <AuthOTPPage />
     </div>
   );
 }
