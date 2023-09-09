@@ -4,18 +4,42 @@ import { Card } from "../Card";
 import { TextInput } from "../TextInput";
 import { Button } from "../Button";
 import { Divider } from "../Divider";
-
-// Cardコンポーネントを使ったログインフォームカードコンポーネント
-
+import { useState } from "react";
 
 export const LoginFormCard = () => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onClick = async () => {
+    await fetch("/api/auth/signIn", {
+      method: "POST",
+      body: JSON.stringify({
+        id,
+        password
+      })
+    });
+
+    console.log(typeof id);
+    console.log(typeof password);
+  };
+
   return (
     <Card css={cardContainer}>
       <p css={title}>ログイン</p>
       <div css={inputSection}>
-        <TextInput placeholder="mail address" />
-        <TextInput placeholder="password" />
-        <Button css={button}>Login</Button>
+        <TextInput
+          value={id}
+          onChange={(event) => setId(event.target.value)}
+          placeholder="ID"
+        />
+        <TextInput
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          placeholder="password"
+        />
+        <Button onClick={onClick} css={button}>
+          Login
+        </Button>
       </div>
       <Divider direction="horizontal" />
       <div css={signupSection}>
@@ -25,8 +49,6 @@ export const LoginFormCard = () => {
     </Card>
   );
 };
-
-
 
 const title = css`
   font-size: 2.3rem;
@@ -60,5 +82,4 @@ const signupSection = css`
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
-
 `;
