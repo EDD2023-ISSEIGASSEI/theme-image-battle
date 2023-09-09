@@ -12,10 +12,9 @@ import { OwnerTag } from "~/components/tags/OwnerTag";
 import { SelectField } from "~/components/SelectField";
 import { Timer } from "~/components/Timer";
 import { useEffect, useState } from "react";
-import { RoomCard } from "~/components/RoomCard";
+// import { RoomCard } from "~/components/RoomCard";
 import { LoginFormCard } from "~/components/cards/LoginFormCard";
 import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
-import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
 import { ResultRankItem } from "~/components/ResultRankItem";
 import { ResultPointItem } from "~/components/ResultPointItem";
 import { UserStatusList } from "~/components/UserStatusList";
@@ -78,14 +77,13 @@ export const SamplePage = () => {
           placeholder="最大人数"
         />
         <Timer time={time} />
-        <div css={roomList}>
+        {/* <div css={roomList}>
           <RoomCard name="つルーム" id="34376648238" currentPeople={3} />
           <RoomCard name="つルーム" id="34376648238" currentPeople={7} />
-        </div>
+        </div> */}
         <h2 css={title}>フォームカードコンポーネント</h2>
         <LoginFormCard />
         <CreateRoomFormCard />
-        <AuthOTPFormCard />
         <ResultRankItem rank={1} name="高橋名人" point={300} />
         <ResultRankItem rank={1} name="ho" point={10} />
         <ResultPointItem
@@ -131,7 +129,7 @@ const tagAndIconList = css`
   gap: 20px;
 `;
 
-const roomList = css`
-  display: flex;
-  gap: 20px;
-`;
+// const roomList = css`
+//   display: flex;
+//   gap: 20px;
+// `;

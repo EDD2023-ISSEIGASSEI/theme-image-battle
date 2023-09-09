@@ -13,6 +13,9 @@ export const LoginFormCard = () => {
   const onClick = async () => {
     await fetch("/api/auth/signIn", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         id,
         password

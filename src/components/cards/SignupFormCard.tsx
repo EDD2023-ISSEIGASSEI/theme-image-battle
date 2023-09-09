@@ -17,11 +17,14 @@ export const SignupFormCard = () => {
   const onClick = async () => {
     await fetch("/api/auth/signUp", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
-        id,
-        name,
-        password,
-        iconImageUrl: imageUrl
+        id: id,
+        name: name,
+        password: password,
+        iconImageUrl: "test"
       })
     });
     console.log(name);

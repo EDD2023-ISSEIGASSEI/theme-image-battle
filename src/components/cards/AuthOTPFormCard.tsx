@@ -3,22 +3,42 @@ import { colors } from "../../styles/themes/colors";
 import { Card } from "../Card";
 import { TextInput } from "../TextInput";
 import { Button } from "../Button";
+import { Dispatch } from "react";
 
 // Cardコンポーネントを使ったワンタイムパスワード認証フォームカードコンポーネント
 
-export const AuthOTPFormCard = () => {
+type AuthOTPFormCardProps = {
+  otp: string;
+  setOtp: Dispatch<React.SetStateAction<string>>;
+  onClick: () => void;
+};
+
+export const AuthOTPFormCard = ({
+  otp,
+  setOtp,
+  onClick
+}: AuthOTPFormCardProps) => {
   return (
     <Card css={cardContainer}>
       <p css={title}>LINE ワンタイムパスワード入力</p>
-      <p css={description}>LINEに送信されたワンタイムパスワードを入力してください。</p>
-      <TextInput placeholder="one-time password" css={textInput} />
+      <p css={description}>
+        LINEに送信されたワンタイムパスワードを入力してください。
+      </p>
+      <TextInput
+        value={otp}
+        onChange={(event) => setOtp(event.target.value)}
+        placeholder="one-time password"
+        css={textInput}
+      />
       <div css={buttonSection}>
         <Button css={button}>戻る</Button>
-        <Button css={button}>認証</Button>
+        <Button css={button} onClick={onClick}>
+          認証
+        </Button>
       </div>
     </Card>
   );
-}
+};
 
 const cardContainer = css`
   display: flex;
@@ -33,7 +53,7 @@ const title = css`
 `;
 
 const description = css`
-  font-size: 2rem; 
+  font-size: 2rem;
   margin-bottom: 40px;
   color: ${colors.black.lighten[1]};
 `;
@@ -51,7 +71,7 @@ const buttonSection = css`
   gap: 20px;
 `;
 
-const button = css` 
+const button = css`
   padding: 10px 20px;
   margin-bottom: 0;
 `;

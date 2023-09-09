@@ -17,6 +17,7 @@ import { CreateRoomPage } from "./pages/createRoom";
 import { ExlanationOTPPage } from "./pages/explanationOTP";
 import { SearchRoomPage } from "./pages/searchRoom";
 import { HomePage } from "./Home";
+import { CheckOtpPage } from "./pages/auth/checkOtp";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
 
       <Route path="/auth/login" element={<LoginPage />} />
       <Route path="/auth/otp" element={<OtpPage />} />
+      <Route path="/auth/checkOtp" element={<CheckOtpPage />} />
       <Route path="/auth/signup" element={<SignupPage />} />
 
       <Route path="/createRoom" element={<CreateRoomPage />} />

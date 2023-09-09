@@ -1,23 +1,36 @@
 import { css } from "@emotion/react";
 import { Header } from "../components/Header";
-import { ROOM_LIST } from "~/data";
 import { RoomCard } from "../components/RoomCard";
 import { SearchForm } from "../components/SearchForm";
+import { useEffect, useState } from "react";
+import { Room } from "~/types";
 
 export const SearchRoomPage = () => {
+  const [roomList, setRoomList] = useState<Room[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetch("/api/room/list", {
+        headers: {
+          "Content-Type": "application/json;"
+        }
+      });
+
+      const json = await res.json();
+
+      console.log("json: ", json);
+      setRoomList(json.rooms);
+    })();
+  }, []);
+
   return (
     <div css={pageContainer}>
       <Header imageUrl={null} />
       <div css={bodyStyle}>
         <SearchForm placeholder="部屋ID検索" />
         <div css={formContainerStyle}>
-          {ROOM_LIST.map((room) => (
-            <RoomCard
-              key={room.id}
-              name={room.name}
-              id={room.id}
-              currentPeople={room.currentPeople}
-            />
+          {roomList.map((room) => (
+            <RoomCard key={room.id} room={room} />
           ))}
         </div>
       </div>
@@ -38,7 +51,7 @@ const bodyStyle = css`
   margin: 50px auto;
 `;
 
-// 二列で表示
+// // 二列で表示
 const formContainerStyle = css`
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -3,12 +3,12 @@ import { Header } from "../../components/Header";
 import { AuthOTPFormCard } from "../../components/cards/AuthOTPFormCard";
 import { useState } from "react";
 
-export const OtpPage = () => {
+export const CheckOtpPage = () => {
   const [otp, setOtp] = useState("");
 
   const onClick = () => {
     (async () => {
-      await fetch("/api/auth/lineRegistration", {
+      await fetch("/api/auth/checkOtp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -26,7 +26,7 @@ export const OtpPage = () => {
     <div css={pageContainer}>
       <Header imageUrl={null} />
       <div css={cardContainer}>
-        <AuthOTPFormCard otp={otp} setOtp={setOtp} onClick={onClick} />
+        <AuthOTPFormCard setOtp={setOtp} otp={otp} onClick={onClick} />
       </div>
     </div>
   );

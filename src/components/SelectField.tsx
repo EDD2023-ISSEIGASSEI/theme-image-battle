@@ -1,17 +1,22 @@
 import { css } from "@emotion/react";
+import { ComponentPropsWithRef } from "react";
 import { colors } from "~/styles/themes/colors";
 
-type SelectFieldProps = {
+interface SelectFieldProps extends ComponentPropsWithRef<"select"> {
   optionList: {
     value: number;
     label: string;
   }[];
   placeholder: string;
-};
+}
 
-export const SelectField = ({ optionList, placeholder }: SelectFieldProps) => {
+export const SelectField = ({
+  optionList,
+  placeholder,
+  ...props
+}: SelectFieldProps) => {
   return (
-    <select css={select} required>
+    <select css={select} required {...props}>
       <option value={""} hidden>
         {placeholder}
       </option>

@@ -2,8 +2,23 @@ import { Header } from "./components/Header";
 import { Button } from "./components/Button";
 import { css } from "@emotion/react";
 import { colors } from "./styles/themes/colors";
+import { useEffect } from "react";
 
 export const HomePage = () => {
+  useEffect(() => {
+    (async () => {
+      const res = await fetch("/api/user", {
+        headers: {
+          "Content-Type": "application/json;"
+        }
+      });
+
+      const json = await res.json();
+
+      console.log("json: ", json);
+    })();
+  }, []);
+
   return (
     <div css={pageContainer}>
       <Header imageUrl={null} />

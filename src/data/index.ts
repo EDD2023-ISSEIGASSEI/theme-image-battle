@@ -1,5 +1,5 @@
 import { ResultPointItemProps } from "~/components/ResultPointItem";
-import { RoomCardProps } from "~/components/RoomCard";
+// import { RoomCardProps } from "~/components/RoomCard";
 import { UserStatusProps } from "~/components/UserStatus";
 import { WaitingUserIconProps } from "~/components/WaitingUserIcon";
 import { ResultRankItemProps } from "~/components/ResultRankItem";
@@ -42,28 +42,28 @@ export const USER_STATUS_LIST: UserStatusProps[] = [
   }
 ];
 
-export const ROOM_LIST: RoomCardProps[] = [
-  {
-    name: "ほげ太郎",
-    id: "fd;qb3-7gna;ojef",
-    currentPeople: 4
-  },
-  {
-    name: "ふが太郎",
-    id: "fd;qfaaa",
-    currentPeople: 7
-  },
-  {
-    name: "もげ太郎",
-    id: "fd;qb3-7gna;ojgggef",
-    currentPeople: 2
-  },
-  {
-    name: "もも太郎",
-    id: "fd;qcc7gna;ojef",
-    currentPeople: 7
-  }
-];
+// export const ROOM_LIST: RoomCardProps[] = [
+//   {
+//     name: "ほげ太郎",
+//     id: "fd;qb3-7gna;ojef",
+//     currentPeople: 4
+//   },
+//   {
+//     name: "ふが太郎",
+//     id: "fd;qfaaa",
+//     currentPeople: 7
+//   },
+//   {
+//     name: "もげ太郎",
+//     id: "fd;qb3-7gna;ojgggef",
+//     currentPeople: 2
+//   },
+//   {
+//     name: "もも太郎",
+//     id: "fd;qcc7gna;ojef",
+//     currentPeople: 7
+//   }
+// ];
 
 export const WAITING_USER_LIST: WaitingUserIconProps[] = [
   {
