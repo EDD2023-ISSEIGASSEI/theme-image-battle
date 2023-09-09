@@ -1,6 +1,7 @@
 import { RoomCardProps } from "~/components/RoomCard";
 import { UserStatusProps } from "~/components/UserStatus";
 import { WaitingUserIconProps } from "~/components/WaitingUserIcon";
+import { ResultRankItemProps } from "~/components/ResultRankItem";
 
 export const USER_STATUS_LIST: UserStatusProps[] = [
   {
@@ -113,3 +114,32 @@ export const WAITING_USER_LIST: WaitingUserIconProps[] = [
     id: "@facc25ddd"
   }
 ];
+
+export const RankingList: ResultRankItemProps[] = [
+  {
+    rank: 1,
+    name: "ほげ太郎",
+    point: 200
+  },
+  {
+    rank: 2,
+    name: "ふが太郎",
+    point: 150
+  },
+  {
+    rank: 3,
+    name: "もげ太郎",
+    point: 100
+  },
+  {
+    rank: 4,
+    name: "もも太郎",
+    point: 50
+  },
+  {
+    rank: 5,
+    name: "つる太郎",
+    point: 10
+  }
+];
+

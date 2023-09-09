@@ -8,6 +8,7 @@ import { CreateRoomPage } from "~/components/screens/CreateRoomPage";
 import { SignupScreen } from "~/components/screens/SignupScreen";
 import { SearchRoomScreen } from "~/components/screens/SearchRoomScreen";
 import { WaitingRoomScreen } from "~/components/screens/WaitingRoomScreen";
+import { FinalResultScreen } from "~/components/screens/FinalResultScreen";
 
 export const SampleScreenPage = () => {
   return (
@@ -20,6 +21,7 @@ export const SampleScreenPage = () => {
       <WaitingRoomScreen />
       <SignupScreen />
       <SearchRoomScreen />
+      <FinalResultScreen />
     </div>
   );
 };
