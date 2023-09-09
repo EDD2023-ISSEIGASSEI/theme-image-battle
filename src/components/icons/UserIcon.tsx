@@ -1,13 +1,14 @@
 import { css } from "@emotion/react";
+import { ComponentPropsWithRef } from "react";
 import { colors } from "~/styles/themes/colors";
 
-type UserIconProps = {
+interface UserIconProps extends ComponentPropsWithRef<"span"> {
   imageUrl?: string;
-};
+}
 
-export const UserIcon = ({ imageUrl }: UserIconProps) => {
+export const UserIcon = ({ imageUrl, ...props }: UserIconProps) => {
   return (
-    <span css={icon}>
+    <span css={icon} {...props}>
       {imageUrl ? (
         <img src={imageUrl} alt="アイコンの画像" />
       ) : (
