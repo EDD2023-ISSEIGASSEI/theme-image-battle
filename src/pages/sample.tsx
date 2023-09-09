@@ -24,6 +24,7 @@ import { ExplanationOTPCard } from "~/components/cards/ExplanationOTPCard";
 import { SignupFormCard } from "~/components/cards/SignupFormCard";
 import { Header } from "~/components/Header";
 import { RoomId } from "~/components/RoomId";
+import { ResultImage } from "~/components/ResultImage";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -97,8 +98,8 @@ export const SamplePage = () => {
       <SignupFormCard />
       <Header imageUrl="" />
       <Header imageUrl="/src/assets/images/react.png" />
-
       <RoomId roomId={roomId} />
+      <ResultImage />
     </div>
   );
 };
