@@ -16,11 +16,12 @@ import { SignupPage } from "./pages/auth/signup";
 import { CreateRoomPage } from "./pages/createRoom";
 import { ExlanationOTPPage } from "./pages/explanationOTP";
 import { SearchRoomPage } from "./pages/searchRoom";
+import { HomePage } from "./Home";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<SearchRoomPage />} />
+      <Route path="/" element={<HomePage />} />
 
       <Route path="/auth/login" element={<LoginPage />} />
       <Route path="/auth/otp" element={<OtpPage />} />
