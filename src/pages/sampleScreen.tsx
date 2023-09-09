@@ -6,6 +6,7 @@ import { ExlanationOTPPage } from "~/components/screens/ExplanationOTPPage";
 import { AuthOTPPage } from "~/components/screens/AuthOTPPage";
 import { CreateRoomPage } from "~/components/screens/CreateRoomPage";
 import { SignupScreen } from "~/components/screens/SignupScreen";
+import { SearchRoomScreen } from "~/components/screens/SearchRoomScreen";
 
 export const SampleScreenPage = () => {
   return (
@@ -16,6 +17,7 @@ export const SampleScreenPage = () => {
       <AuthOTPPage />
       <CreateRoomPage />
       <SignupScreen />
+      <SearchRoomScreen />
     </div>
   );
 };

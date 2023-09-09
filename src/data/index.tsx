@@ -39,3 +39,33 @@ export const USER_STATUS_LIST: UserStatusProps[] = [
     role: "子"
   }
 ];
+
+type RoomCardProps = {
+  name: string;
+  id: string;
+  currentPeople: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+};
+
+export const ROOM_LIST:RoomCardProps[] = [
+  {
+    name: "ほげ太郎",
+    id: "fd;qb3-7gna;ojef",
+    currentPeople: 4
+  },
+  {
+    name: "ふが太郎",
+    id: "fd;qfaaa",
+    currentPeople: 7
+  },
+  {
+    name: "もげ太郎",
+    id: "fd;qb3-7gna;ojgggef",
+    currentPeople: 2
+  },
+  {
+    name: "もも太郎",
+    id: "fd;qcc7gna;ojef",
+    currentPeople: 7
+  },
+];
+
