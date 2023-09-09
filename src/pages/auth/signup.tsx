@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { Header } from "../../components/Header";
 import { SignupFormCard } from "../../components/cards/SignupFormCard";
+import { colors } from "~/styles/themes/colors";
 
 export const SignupPage = () => {
   return (
@@ -18,6 +19,7 @@ const createRoomPageStyle = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: ${colors.primary};
 `;
 
 const formContainerStyle = css`

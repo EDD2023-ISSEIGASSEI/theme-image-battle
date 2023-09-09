@@ -9,15 +9,45 @@ import { UploadFileInput } from "../UploadFileInput";
 import { useState } from "react";
 
 export const SignupFormCard = () => {
+  const [name, setName] = useState("");
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  const onClick = async () => {
+    await fetch("/api/auth/signUp", {
+      method: "POST",
+      body: JSON.stringify({
+        id,
+        name,
+        password,
+        iconImageUrl: imageUrl
+      })
+    });
+    console.log(name);
+    console.log(id);
+    console.log(password);
+  };
 
   return (
     <Card css={cardContainer}>
       <p css={title}>Sign up</p>
       <div css={inputSection}>
-        <TextInput placeholder="user name" />
-        <TextInput placeholder="mail address" />
-        <TextInput placeholder="password" />
+        <TextInput
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          placeholder="user name"
+        />
+        <TextInput
+          placeholder="ID"
+          value={id}
+          onChange={(event) => setId(event.target.value)}
+        />
+        <TextInput
+          placeholder="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
         <p css={setTitle}>アイコンを設定しますか？</p>
         <p css={description}>
           アイコンを設定しない場合は、デフォルトのアイコンが設定されます。
@@ -26,7 +56,9 @@ export const SignupFormCard = () => {
 
         <div css={selection}>
           <UploadFileInput setImageUrl={setImageUrl} />
-          <Button color="primary">Sign up</Button>
+          <Button onClick={onClick} color="primary">
+            Sign up
+          </Button>
         </div>
       </div>
       <Divider direction="horizontal" />
