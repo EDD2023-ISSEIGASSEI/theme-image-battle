@@ -25,7 +25,6 @@ import { SignupFormCard } from "~/components/cards/SignupFormCard";
 import { Header } from "~/components/Header";
 import { RoomId } from "~/components/RoomId";
 import { ResultImage } from "~/components/ResultImage";
-import { UploadIconCard } from "~/components/cards/UploadIconCard";
 import logo from "~/assets/images/logo.png";
 import { LoginPage } from "~/components/screens/LoginPage";
 
@@ -48,67 +47,66 @@ export const SamplePage = () => {
   }, [time]);
 
   return (
-  <>
-    <div css={container}>
-      <h1 css={title}>コンポーネント確認ページ</h1>
-      <Card>Cardコンポーネントです</Card>
-      <TextInput placeholder="TextInputコンポーネントです" />
-      <Button onClick={() => console.log("こんにちは")}>
-        Buttonコンポーネントです
-      </Button>
-      <Button color="secondary">Button（secondary）コンポーネントです</Button>
-      <Divider direction="horizontal" />
-      <UserStatusList userStatusList={USER_STATUS_LIST} />
-      <div css={tagAndIconList}>
-        <CheckTag isChecked />
-        <CheckTag />
-        <ParentTag />
-        <UserIcon />
-        <UserIcon imageUrl="/src/assets/images/react.png" />
-        <OwnerTag />
+    <>
+      <div css={container}>
+        <h1 css={title}>コンポーネント確認ページ</h1>
+        <Card>Cardコンポーネントです</Card>
+        <TextInput placeholder="TextInputコンポーネントです" />
+        <Button onClick={() => console.log("こんにちは")}>
+          Buttonコンポーネントです
+        </Button>
+        <Button color="secondary">Button（secondary）コンポーネントです</Button>
+        <Divider direction="horizontal" />
+        <UserStatusList userStatusList={USER_STATUS_LIST} />
+        <div css={tagAndIconList}>
+          <CheckTag isChecked />
+          <CheckTag />
+          <ParentTag />
+          <UserIcon />
+          <UserIcon imageUrl="/src/assets/images/react.png" />
+          <OwnerTag />
+        </div>
+        <SelectField
+          optionList={[
+            { value: 1, label: "1人" },
+            { value: 2, label: "2人" },
+            { value: 3, label: "3人" },
+            { value: 4, label: "4人" }
+          ]}
+          placeholder="最大人数"
+        />
+        <Timer time={time} />
+        <div css={roomList}>
+          <RoomCard name="つルーム" id="34376648238" currentPeople={3} />
+          <RoomCard name="つルーム" id="34376648238" currentPeople={7} />
+        </div>
+        <h2 css={title}>フォームカードコンポーネント</h2>
+        <LoginFormCard />
+        <CreateRoomFormCard />
+        <AuthOTPFormCard />
+        <ResultRankItem rank={1} name="高橋名人" point={300} />
+        <ResultRankItem rank={1} name="ho" point={10} />
+        <ResultPointItem
+          name="鶴太郎"
+          point={200}
+          replyTheme="交通事故に遭うhoge太郎"
+        />
+        <WaitingUserIcon
+          isOwner={true}
+          imageUrl="/src/assets/images/react.png"
+          name="hogeくん"
+          id="@fwwithva"
+        />
+        <ExplanationOTPCard />
+        <SignupFormCard />
+        <Header imageUrl="" />
+        <Header imageUrl="/src/assets/images/react.png" />
+        <RoomId roomId={roomId} />
+        <ResultImage />
+        <img src={logo} alt="" />
       </div>
-      <SelectField
-        optionList={[
-          { value: 1, label: "1人" },
-          { value: 2, label: "2人" },
-          { value: 3, label: "3人" },
-          { value: 4, label: "4人" }
-        ]}
-        placeholder="最大人数"
-      />
-      <Timer time={time} />
-      <div css={roomList}>
-        <RoomCard name="つルーム" id="34376648238" currentPeople={3} />
-        <RoomCard name="つルーム" id="34376648238" currentPeople={7} />
-      </div>
-      <h2 css={title}>フォームカードコンポーネント</h2>
-      <LoginFormCard />
-      <CreateRoomFormCard />
-      <AuthOTPFormCard />
-      <ResultRankItem rank={1} name="高橋名人" point={300} />
-      <ResultRankItem rank={1} name="ho" point={10} />
-      <ResultPointItem
-        name="鶴太郎"
-        point={200}
-        replyTheme="交通事故に遭うhoge太郎"
-      />
-      <WaitingUserIcon
-        isOwner={true}
-        imageUrl="/src/assets/images/react.png"
-        name="hogeくん"
-        id="@fwwithva"
-      />
-      <ExplanationOTPCard />
-      <SignupFormCard />
-      <Header imageUrl="" />
-      <Header imageUrl="/src/assets/images/react.png" />
-      <RoomId roomId={roomId} />
-      <ResultImage />
-      <UploadIconCard />
-      <img src={logo} alt="" />
-    </div>
-    <LoginPage />
-  </>
+      <LoginPage />
+    </>
   );
 };
 

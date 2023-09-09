@@ -14,7 +14,7 @@ export const SampleScreenPage = () => {
       <AuthOTPPage />
     </div>
   );
-}
+};
 
 const pageContainer = css`
   display: flex;
