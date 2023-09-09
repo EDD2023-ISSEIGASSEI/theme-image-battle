@@ -1,8 +1,12 @@
 import { css } from "@emotion/react";
 import { colors } from "~/styles/themes/colors";
 
-export const OwnerTag = () => {
-  return <span css={tag}>オーナー</span>;
+export const OwnerTag = ({ ...props }) => {
+  return (
+    <span css={tag} {...props}>
+      オーナー
+    </span>
+  );
 };
 
 const tag = css`
