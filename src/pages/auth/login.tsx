@@ -2,11 +2,15 @@ import { css } from "@emotion/react";
 import { Header } from "../../components/Header";
 import { LoginFormCard } from "../../components/cards/LoginFormCard";
 import { colors } from "~/styles/themes/colors";
+import { User } from "~/types";
+import { useLoaderData } from "react-router-dom";
 
 export const LoginPage = () => {
+  const user = useLoaderData() as User;
+
   return (
     <div css={pageContainer}>
-      <Header />
+      <Header user={user} />
       <div css={cardContainer}>
         <LoginFormCard />
       </div>

@@ -3,9 +3,12 @@ import { Header } from "../../components/Header";
 import { AuthOTPFormCard } from "../../components/cards/AuthOTPFormCard";
 import { useState } from "react";
 import { colors } from "~/styles/themes/colors";
+import { User } from "~/types";
+import { useLoaderData } from "react-router-dom";
 
 export const OtpPage = () => {
   const [otp, setOtp] = useState("");
+  const user = useLoaderData() as User;
 
   const onClick = () => {
     (async () => {
@@ -25,7 +28,7 @@ export const OtpPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header />
+      <Header user={user} />
       <div css={cardContainer}>
         <AuthOTPFormCard otp={otp} setOtp={setOtp} onClick={onClick} />
       </div>

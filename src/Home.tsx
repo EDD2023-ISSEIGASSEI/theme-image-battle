@@ -2,28 +2,14 @@ import { Header } from "./components/Header";
 import { Button } from "./components/Button";
 import { css } from "@emotion/react";
 import { colors } from "./styles/themes/colors";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { User } from "./types";
 
 export const HomePage = () => {
-  const [user, setUser] = useState<User | null>();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/api/user", {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-
-      const json = await res.json();
-
-      console.log("json: ", json);
-      setUser(json);
-    })();
-  }, []);
+  const user = useLoaderData() as User;
+  console.log("user: ", user);
 
   return (
     <div css={pageContainer}>

@@ -3,11 +3,13 @@ import { Header } from "../components/Header";
 import { RoomCard } from "../components/RoomCard";
 import { SearchForm } from "../components/SearchForm";
 import { useEffect, useState } from "react";
-import { Room } from "~/types";
+import { Room, User } from "~/types";
 import { colors } from "~/styles/themes/colors";
+import { useLoaderData } from "react-router-dom";
 
 export const SearchRoomPage = () => {
   const [roomList, setRoomList] = useState<Room[]>([]);
+  const user = useLoaderData() as User;
 
   useEffect(() => {
     (async () => {
@@ -26,7 +28,7 @@ export const SearchRoomPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header />
+      <Header user={user} />
       <div css={bodyStyle}>
         <SearchForm placeholder="部屋ID検索" />
         <div css={formContainerStyle}>

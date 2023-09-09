@@ -2,11 +2,13 @@ import { css } from "@emotion/react";
 import { Header } from "../../components/Header";
 import { AuthOTPFormCard } from "../../components/cards/AuthOTPFormCard";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { colors } from "~/styles/themes/colors";
+import { User } from "~/types";
 
 export const CheckOtpPage = () => {
   const [otp, setOtp] = useState("");
+  const user = useLoaderData() as User;
   const navigate = useNavigate();
 
   const onClick = () => {
@@ -31,7 +33,7 @@ export const CheckOtpPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header />
+      <Header user={user} />
       <div css={cardContainer}>
         <AuthOTPFormCard setOtp={setOtp} otp={otp} onClick={onClick} />
       </div>

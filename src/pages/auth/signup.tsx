@@ -2,11 +2,15 @@ import { css } from "@emotion/react";
 import { Header } from "../../components/Header";
 import { SignupFormCard } from "../../components/cards/SignupFormCard";
 import { colors } from "~/styles/themes/colors";
+import { useLoaderData } from "react-router-dom";
+import { User } from "~/types";
 
 export const SignupPage = () => {
+  const user = useLoaderData() as User;
+
   return (
     <div css={createRoomPageStyle}>
-      <Header />
+      <Header user={user} />
       <div css={formContainerStyle}>
         <SignupFormCard />
       </div>

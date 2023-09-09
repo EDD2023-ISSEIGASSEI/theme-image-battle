@@ -19,19 +19,48 @@ import { SearchRoomPage } from "./pages/searchRoom";
 import { HomePage } from "./Home";
 import { CheckOtpPage } from "./pages/auth/checkOtp";
 
+// サンプルデータを返す関数
+const userLoader = async () => {
+  const res = await fetch("/api/user", {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+
+  const json = await res.json();
+
+  return json;
+};
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<HomePage />} loader={userLoader} />
 
-      <Route path="/auth/login" element={<LoginPage />} />
-      <Route path="/auth/otp" element={<OtpPage />} />
-      <Route path="/auth/checkOtp" element={<CheckOtpPage />} />
-      <Route path="/auth/signup" element={<SignupPage />} />
+      <Route path="/auth/login" element={<LoginPage />} loader={userLoader} />
+      <Route path="/auth/otp" element={<OtpPage />} loader={userLoader} />
+      <Route
+        path="/auth/checkOtp"
+        element={<CheckOtpPage />}
+        loader={userLoader}
+      />
+      <Route path="/auth/signup" element={<SignupPage />} loader={userLoader} />
 
-      <Route path="/createRoom" element={<CreateRoomPage />} />
-      <Route path="/explanationOTP" element={<ExlanationOTPPage />} />
-      <Route path="/searchRoom" element={<SearchRoomPage />} />
+      <Route
+        path="/createRoom"
+        element={<CreateRoomPage />}
+        loader={userLoader}
+      />
+      <Route
+        path="/explanationOTP"
+        element={<ExlanationOTPPage />}
+        loader={userLoader}
+      />
+      <Route
+        path="/searchRoom"
+        element={<SearchRoomPage />}
+        loader={userLoader}
+      />
 
       <Route path="/sample" element={<SamplePage />} />
       <Route path="/sampleScreens" element={<SampleScreenPage />} />

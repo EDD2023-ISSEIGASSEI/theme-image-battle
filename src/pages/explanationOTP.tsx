@@ -2,11 +2,15 @@ import { css } from "@emotion/react";
 import { ExplanationOTPCard } from "../components/cards/ExplanationOTPCard";
 import { Header } from "../components/Header";
 import { colors } from "~/styles/themes/colors";
+import { User } from "~/types";
+import { useLoaderData } from "react-router-dom";
 
 export const ExlanationOTPPage = () => {
+  const user = useLoaderData() as User;
+
   return (
     <div css={pageContainer}>
-      <Header />
+      <Header user={user} />
       <div css={cardContainer}>
         <ExplanationOTPCard />
       </div>
