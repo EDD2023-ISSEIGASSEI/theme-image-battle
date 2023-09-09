@@ -24,7 +24,7 @@ export const OtpPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={cardContainer}>
         <AuthOTPFormCard otp={otp} setOtp={setOtp} onClick={onClick} />
       </div>

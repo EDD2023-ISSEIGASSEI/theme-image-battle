@@ -8,12 +8,17 @@ import { Button } from "../Button";
 export const FinalResultScreen = () => {
   return (
     <div css={pageContainer}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={bodyStyle}>
         <p css={title}>結果発表</p>
         <div css={rankStyle}>
           {RankingList.map((rank) => (
-            <ResultRankItem key={rank.rank} rank={rank.rank} name={rank.name} point={rank.point} />
+            <ResultRankItem
+              key={rank.rank}
+              rank={rank.rank}
+              name={rank.name}
+              point={rank.point}
+            />
           ))}
         </div>
         <div css={buttonStyle}>

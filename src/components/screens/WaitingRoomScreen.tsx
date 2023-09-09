@@ -16,7 +16,7 @@ const optionList = [
 export const WaitingRoomScreen = () => {
   return (
     <>
-      <Header imageUrl="" />
+      <Header />
       <h1>部屋名</h1>
       <RoomId roomId="578305749" />
       <p

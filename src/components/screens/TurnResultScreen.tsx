@@ -9,7 +9,7 @@ import { css } from "@emotion/react";
 export const TurnResultScreen = () => {
   return (
     <>
-      <Header imageUrl="" />
+      <Header />
       <h1>{2}ターン目 結果発表</h1>
       <div
         css={css`

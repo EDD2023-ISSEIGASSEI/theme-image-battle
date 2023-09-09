@@ -21,7 +21,7 @@ import { UserStatusList } from "~/components/UserStatusList";
 import { WaitingUserIcon } from "~/components/WaitingUserIcon";
 import { ExplanationOTPCard } from "~/components/cards/ExplanationOTPCard";
 import { SignupFormCard } from "~/components/cards/SignupFormCard";
-import { Header } from "~/components/Header";
+// import { Header } from "~/components/Header";
 import { RoomId } from "~/components/RoomId";
 import { ResultImage } from "~/components/ResultImage";
 import logo from "~/assets/images/logo.png";
@@ -99,8 +99,8 @@ export const SamplePage = () => {
         />
         <ExplanationOTPCard />
         <SignupFormCard />
-        <Header imageUrl="" />
-        <Header imageUrl="/src/assets/images/react.png" />
+        {/* <Header imageUrl="" />
+        <Header imageUrl="/src/assets/images/react.png" /> */}
         <RoomId roomId={roomId} />
         <ResultImage />
         <img src={logo} alt="" />
