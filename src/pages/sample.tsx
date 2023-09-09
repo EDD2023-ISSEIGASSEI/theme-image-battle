@@ -20,6 +20,7 @@ import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
 import { ResultRankItem } from "~/components/ResultRankItem";
 import { ResultPointItem } from "~/components/ResultPointItem";
 import { UserStatusList } from "~/components/UserStatusList";
+import { WaitingUserIcon } from "~/components/WaitingUserIcon";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -80,6 +81,12 @@ export const SamplePage = () => {
         name="鶴太郎"
         point={200}
         replyTheme="交通事故に遭うhoge太郎"
+      />
+      <WaitingUserIcon
+        isOwner={true}
+        imageUrl="/src/assets/images/react.png"
+        name="hogeくん"
+        id="@fwwithva"
       />
     </div>
   );
