@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { colors } from "~/styles/themes/colors";
 
-type ResultPointItemProps = {
+export type ResultPointItemProps = {
   name: string;
   point: number;
   replyTheme: string;

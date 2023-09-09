@@ -13,13 +13,15 @@ import { colors } from "../styles/themes/colors";
 export const ResultImage = () => {
   return (
     <div css={wrapper}>
-      <img css={imgStyle} src="https://picsum.photos/seed/picsum/300/300" alt="resultImage" />
+      <img
+        css={imgStyle}
+        src="https://picsum.photos/seed/picsum/300/300"
+        alt="resultImage"
+      />
       <p css={parent}>親: ほげ太郎</p>
       <p css={theme}>
         <span css={themeSpan}>お題:</span>
-        <span>
-          三味線を演奏するピカチュウ
-        </span>
+        <span>三味線を演奏するピカチュウ</span>
       </p>
       <p>生成指示: 弦楽器 黄色いネズミ鶴太郎</p>
     </div>
@@ -50,8 +52,3 @@ const themeSpan = css`
   white-space: nowrap;
   width: fit-content;
 `;
-
-
-
-
-

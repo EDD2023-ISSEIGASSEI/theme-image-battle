@@ -1,3 +1,4 @@
+import { ResultPointItemProps } from "~/components/ResultPointItem";
 import { RoomCardProps } from "~/components/RoomCard";
 import { UserStatusProps } from "~/components/UserStatus";
 import { WaitingUserIconProps } from "~/components/WaitingUserIcon";
@@ -143,3 +144,9 @@ export const RankingList: ResultRankItemProps[] = [
   }
 ];
 
+export const RESULT_POINT_ITEM: ResultPointItemProps[] = [
+  { name: "ほげ太郎", point: 200, replyTheme: "今んaaちは" },
+  { name: "げ太郎", point: 300, replyTheme: "今んちaaは" },
+  { name: "ほ太郎", point: 500, replyTheme: "今んちfffは" },
+  { name: "ほげ郎", point: 200, replyTheme: "ff今んちは" }
+];
