@@ -1,12 +1,5 @@
 import { css } from "@emotion/react";
 import { colors } from "~/styles/themes/colors";
-import { LoginPage } from "~/components/screens/LoginPage";
-import { StartPage } from "~/components/screens/StartPage";
-import { ExlanationOTPPage } from "~/components/screens/ExplanationOTPPage";
-import { AuthOTPPage } from "~/components/screens/AuthOTPPage";
-import { CreateRoomPage } from "~/components/screens/CreateRoomPage";
-import { SignupScreen } from "~/components/screens/SignupScreen";
-import { SearchRoomScreen } from "~/components/screens/SearchRoomScreen";
 import { WaitingRoomScreen } from "~/components/screens/WaitingRoomScreen";
 import { FinalResultScreen } from "~/components/screens/FinalResultScreen";
 import { TurnResultScreen } from "~/components/screens/TurnResultScreen";
@@ -14,14 +7,7 @@ import { TurnResultScreen } from "~/components/screens/TurnResultScreen";
 export const SampleScreenPage = () => {
   return (
     <div css={pageContainer}>
-      <LoginPage />
-      <StartPage />
-      <ExlanationOTPPage />
-      <AuthOTPPage />
-      <CreateRoomPage />
       <WaitingRoomScreen />
-      <SignupScreen />
-      <SearchRoomScreen />
       <FinalResultScreen />
       <TurnResultScreen />
     </div>

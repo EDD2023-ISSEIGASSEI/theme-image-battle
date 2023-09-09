@@ -1,8 +1,8 @@
-import { css } from '@emotion/react';
-import { Header } from '../Header';
-import { SignupFormCard } from '../cards/SignupFormCard';
+import { css } from "@emotion/react";
+import { Header } from "../../components/Header";
+import { SignupFormCard } from "../../components/cards/SignupFormCard";
 
-export const SignupScreen = () => {
+export const SignupPage = () => {
   return (
     <div css={createRoomPageStyle}>
       <Header imageUrl={null} />
@@ -11,8 +11,7 @@ export const SignupScreen = () => {
       </div>
     </div>
   );
-}
-
+};
 
 const createRoomPageStyle = css`
   width: 100%;
@@ -27,6 +26,6 @@ const formContainerStyle = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px; 
+  margin-top: 50px;
   margin-bottom: 50px;
 `;

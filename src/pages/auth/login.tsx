@@ -1,17 +1,17 @@
 import { css } from "@emotion/react";
-import { ExplanationOTPCard } from "../cards/ExplanationOTPCard";
-import { Header } from "../Header";
+import { Header } from "../../components/Header";
+import { LoginFormCard } from "../../components/cards/LoginFormCard";
 
-export const ExlanationOTPPage = () => {
+export const LoginPage = () => {
   return (
     <div css={pageContainer}>
       <Header imageUrl={null} />
       <div css={cardContainer}>
-        <ExplanationOTPCard />  
+        <LoginFormCard />
       </div>
     </div>
   );
-}
+};
 
 const pageContainer = css`
   display: flex;
@@ -22,6 +22,6 @@ const pageContainer = css`
 
 const cardContainer = css`
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 40px;
-`
+`;

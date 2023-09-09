@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { colors } from "~/styles/themes/colors";
-import { Button } from "../Button";
-import { Header } from '../Header';
+import { Button } from "../components/Button";
+import { Header } from "../components/Header";
 
 export const StartPage = () => {
   return (
@@ -17,7 +17,7 @@ export const StartPage = () => {
       </div>
     </div>
   );
-}
+};
 
 const pageContainer = css`
   display: flex;

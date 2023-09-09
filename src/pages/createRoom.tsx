@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
-import { Header } from '../Header';
-import { CreateRoomFormCard } from '../cards/CreateRoomFormCard';
+import { css } from "@emotion/react";
+import { Header } from "../components/Header";
+import { CreateRoomFormCard } from "../components/cards/CreateRoomFormCard";
 
 export const CreateRoomPage = () => {
   return (
@@ -11,8 +11,7 @@ export const CreateRoomPage = () => {
       </div>
     </div>
   );
-}
-
+};
 
 const createRoomPageStyle = css`
   width: 100%;

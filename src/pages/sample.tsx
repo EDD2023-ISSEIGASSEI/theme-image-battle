@@ -26,7 +26,7 @@ import { Header } from "~/components/Header";
 import { RoomId } from "~/components/RoomId";
 import { ResultImage } from "~/components/ResultImage";
 import logo from "~/assets/images/logo.png";
-import { LoginPage } from "~/components/screens/LoginPage";
+import { LoginPage } from "~/pages/auth/login";
 import { SearchForm } from "~/components/SearchForm";
 
 // コンポーネント確認ページ
