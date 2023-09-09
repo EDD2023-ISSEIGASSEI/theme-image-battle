@@ -25,6 +25,8 @@ import { SignupFormCard } from "~/components/cards/SignupFormCard";
 import { Header } from "~/components/Header";
 import { RoomId } from "~/components/RoomId";
 import { ResultImage } from "~/components/ResultImage";
+import { UploadIconCard } from "~/components/cards/UploadIconCard";
+import logo from "~/assets/images/logo.png";
 import { LoginPage } from "~/components/screens/LoginPage";
 
 // コンポーネント確認ページ
@@ -102,6 +104,8 @@ export const SamplePage = () => {
       <Header imageUrl="/src/assets/images/react.png" />
       <RoomId roomId={roomId} />
       <ResultImage />
+      <UploadIconCard />
+      <img src={logo} alt="" />
     </div>
     <LoginPage />
   </>

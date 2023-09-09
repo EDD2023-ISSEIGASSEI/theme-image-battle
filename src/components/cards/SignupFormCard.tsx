@@ -4,10 +4,13 @@ import { Card } from "../Card";
 import { TextInput } from "../TextInput";
 import { Button } from "../Button";
 import { Divider } from "../Divider";
-
-// Cardコンポーネントを使ったログインフォームカードコンポーネント
+import { UserIcon } from "../icons/UserIcon";
+import { UploadFileInput } from "../UploadFileInput";
+import { useState } from "react";
 
 export const SignupFormCard = () => {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
   return (
     <Card css={cardContainer}>
       <p css={title}>Sign up</p>
@@ -16,10 +19,14 @@ export const SignupFormCard = () => {
         <TextInput placeholder="mail address" />
         <TextInput placeholder="password" />
         <p css={setTitle}>アイコンを設定しますか？</p>
-        <p css={description}>アイコンを設定しない場合は、デフォルトのアイコンが設定されます。</p>
+        <p css={description}>
+          アイコンを設定しない場合は、デフォルトのアイコンが設定されます。
+        </p>
+        <UserIcon imageUrl={imageUrl ? imageUrl : ""} />
+
         <div css={selection}>
-          <Button color="secondary">設定しない</Button>
-          <Button color="primary">設定する</Button>
+          <UploadFileInput setImageUrl={setImageUrl} />
+          <Button color="primary">Sign up</Button>
         </div>
       </div>
       <Divider direction="horizontal" />
@@ -30,8 +37,6 @@ export const SignupFormCard = () => {
     </Card>
   );
 };
-
-
 
 const title = css`
   font-size: 2.5rem;
@@ -69,12 +74,7 @@ const description = css`
 
 const selection = css`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 30px;
-  & > *:first-of-type {
-    margin-right: 50px;
-  }
+  gap: 64px;
 `;
 
 const signupSection = css`
@@ -82,5 +82,4 @@ const signupSection = css`
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
-
 `;
