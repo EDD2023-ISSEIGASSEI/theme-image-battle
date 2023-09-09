@@ -22,6 +22,7 @@ import { UserStatusList } from "~/components/UserStatusList";
 import { WaitingUserIcon } from "~/components/WaitingUserIcon";
 import { ExplanationOTPCard } from "~/components/cards/ExplanationOTPCard";
 import { SignupFormCard } from "~/components/cards/SignupFormCard";
+import { Header } from "~/components/Header";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -91,6 +92,8 @@ export const SamplePage = () => {
       />
       <ExplanationOTPCard />
       <SignupFormCard />
+      <Header imageUrl="" />
+      <Header imageUrl="/src/assets/images/react.png" />
     </div>
   );
 };
