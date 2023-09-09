@@ -18,6 +18,7 @@ import { LoginFormCard } from "~/components/cards/LoginFormCard";
 import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
 import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
 import { ResultRankItem } from "~/components/ResultRankItem";
+import { ResultPointItem } from "~/components/ResultPointItem";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -89,6 +90,11 @@ export const SamplePage = () => {
       <AuthOTPFormCard />
       <ResultRankItem rank={1} name="高橋名人" point={300} />
       <ResultRankItem rank={1} name="ho" point={10} />
+      <ResultPointItem
+        name="鶴太郎"
+        point={200}
+        replyTheme="交通事故に遭うhoge太郎"
+      />
     </div>
   );
 };

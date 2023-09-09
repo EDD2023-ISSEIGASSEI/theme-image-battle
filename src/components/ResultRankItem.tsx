@@ -9,9 +9,9 @@ type ResultRankItemProps = {
 
 export const ResultRankItem = ({ rank, name, point }: ResultRankItemProps) => {
   return (
-    <div css={result}>
+    <p css={result}>
       {rank}位 {name}：{point}pt
-    </div>
+    </p>
   );
 };
 
