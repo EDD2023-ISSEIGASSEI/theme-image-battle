@@ -2,12 +2,14 @@ import { css } from "@emotion/react";
 import { colors } from "~/styles/themes/colors";
 import { LoginPage } from "~/components/screens/LoginPage";
 import { StartPage } from "~/components/screens/StartPage";
+import { ExlanationOTPPage } from "~/components/screens/ExplanationOTPPage";
 
 export const SampleScreenPage = () => {
   return (
     <div css={pageContainer}>
       <LoginPage />
       <StartPage />
+      <ExlanationOTPPage />
     </div>
   );
 }

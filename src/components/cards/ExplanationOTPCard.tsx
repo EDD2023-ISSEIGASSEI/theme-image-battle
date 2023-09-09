@@ -26,12 +26,12 @@ const cardContainer = css`
 
 const title = css`
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: ${colors.black.lighten[1]};
 `;
 
 const explainImg = css`
-  width: 80%;
+  width: 70%;
   margin-bottom: 40px;
 `;
 
@@ -39,7 +39,7 @@ const explainImg = css`
 const buttonSection = css`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
   gap: 20px;
 `;
 
