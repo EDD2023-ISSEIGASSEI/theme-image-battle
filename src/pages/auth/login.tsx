@@ -6,7 +6,7 @@ import { colors } from "~/styles/themes/colors";
 export const LoginPage = () => {
   return (
     <div css={pageContainer}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={cardContainer}>
         <LoginFormCard />
       </div>

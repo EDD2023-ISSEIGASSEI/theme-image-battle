@@ -5,7 +5,7 @@ import { CreateRoomFormCard } from "../components/cards/CreateRoomFormCard";
 export const CreateRoomPage = () => {
   return (
     <div css={createRoomPageStyle}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={formContainerStyle}>
         <CreateRoomFormCard />
       </div>

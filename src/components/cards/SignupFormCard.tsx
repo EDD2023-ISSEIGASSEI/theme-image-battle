@@ -7,8 +7,10 @@ import { Divider } from "../Divider";
 import { UserIcon } from "../icons/UserIcon";
 import { UploadFileInput } from "../UploadFileInput";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SignupFormCard = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -24,12 +26,10 @@ export const SignupFormCard = () => {
         id: id,
         name: name,
         password: password,
-        iconImageUrl: "test"
+        iconImageUrl: imageUrl
       })
     });
-    console.log(name);
-    console.log(id);
-    console.log(password);
+    navigate("/auth/otp");
   };
 
   return (
