@@ -5,25 +5,30 @@ import { TextInput } from "../TextInput";
 import { Button } from "../Button";
 import { Divider } from "../Divider";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginFormCard = () => {
+  const navigate = useNavigate();
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
 
   const onClick = async () => {
-    await fetch("/api/auth/signIn", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        id,
-        password
-      })
-    });
+    try {
+      await fetch("/api/auth/signIn", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id,
+          password
+        })
+      });
 
-    console.log(typeof id);
-    console.log(typeof password);
+      navigate("/auth/checkOtp");
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (

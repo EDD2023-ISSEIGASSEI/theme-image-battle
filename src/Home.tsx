@@ -2,32 +2,42 @@ import { Header } from "./components/Header";
 import { Button } from "./components/Button";
 import { css } from "@emotion/react";
 import { colors } from "./styles/themes/colors";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { User } from "./types";
 
 export const HomePage = () => {
+  const [user, setUser] = useState<User | null>();
+  const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       const res = await fetch("/api/user", {
         headers: {
-          "Content-Type": "application/json;"
+          "Content-Type": "application/json"
         }
       });
 
       const json = await res.json();
 
       console.log("json: ", json);
+      setUser(json);
     })();
   }, []);
 
   return (
     <div css={pageContainer}>
-      <Header imageUrl={null} />
+      <Header user={user} />
       <div css={container}>
         <h1 css={title}>hogeticPhone</h1>
         <p css={description}>画力なし救済用GarticPhone風ゲーム</p>
         <div css={buttonSection}>
-          <Button css={button}>部屋に入る</Button>
-          <Button css={button}>部屋を作る</Button>
+          <Button onClick={() => navigate("/searchRoom")} css={button}>
+            部屋に入る
+          </Button>
+          <Button onClick={() => navigate("/createRoom")} css={button}>
+            部屋を作る
+          </Button>
         </div>
       </div>
     </div>

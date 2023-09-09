@@ -5,9 +5,11 @@ import { TextInput } from "../TextInput";
 import { Button } from "../Button";
 import { SelectField } from "../SelectField";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Cardコンポーネントを使ったルーム作成フォームカードコンポーネント
 export const CreateRoomFormCard = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,10 +33,10 @@ export const CreateRoomFormCard = () => {
         maxMember: Number(selectedValue)
       })
     });
-    console.log(name);
-    console.log(password);
-    console.log(Number(selectedValue));
+
+    navigate("/waitingRoom");
   };
+
   return (
     <Card css={cardContainer}>
       <p css={title}>部屋を作成してください</p>

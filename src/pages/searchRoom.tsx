@@ -4,6 +4,7 @@ import { RoomCard } from "../components/RoomCard";
 import { SearchForm } from "../components/SearchForm";
 import { useEffect, useState } from "react";
 import { Room } from "~/types";
+import { colors } from "~/styles/themes/colors";
 
 export const SearchRoomPage = () => {
   const [roomList, setRoomList] = useState<Room[]>([]);
@@ -25,7 +26,7 @@ export const SearchRoomPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={bodyStyle}>
         <SearchForm placeholder="部屋ID検索" />
         <div css={formContainerStyle}>
@@ -44,6 +45,7 @@ const pageContainer = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: ${colors.primary};
 `;
 
 const bodyStyle = css`

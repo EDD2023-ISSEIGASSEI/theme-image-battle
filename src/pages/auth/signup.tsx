@@ -6,7 +6,7 @@ import { colors } from "~/styles/themes/colors";
 export const SignupPage = () => {
   return (
     <div css={createRoomPageStyle}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={formContainerStyle}>
         <SignupFormCard />
       </div>
