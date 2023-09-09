@@ -19,6 +19,7 @@ import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
 import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
 import { ResultRankItem } from "~/components/ResultRankItem";
 import { ResultPointItem } from "~/components/ResultPointItem";
+import { UserStatusList } from "~/components/UserStatusList";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -95,6 +96,7 @@ export const SamplePage = () => {
         point={200}
         replyTheme="交通事故に遭うhoge太郎"
       />
+      <UserStatusList userStatusList={USER_STATUS_LIST} />
     </div>
   );
 };
