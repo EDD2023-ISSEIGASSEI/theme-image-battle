@@ -23,10 +23,13 @@ import { WaitingUserIcon } from "~/components/WaitingUserIcon";
 import { ExplanationOTPCard } from "~/components/cards/ExplanationOTPCard";
 import { SignupFormCard } from "~/components/cards/SignupFormCard";
 import { Header } from "~/components/Header";
+import { RoomId } from "~/components/RoomId";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
   const [time, setTime] = useState(60);
+
+  const roomId = "2957220858";
 
   useEffect(() => {
     const id = setTimeout(() => {
@@ -94,6 +97,8 @@ export const SamplePage = () => {
       <SignupFormCard />
       <Header imageUrl="" />
       <Header imageUrl="/src/assets/images/react.png" />
+
+      <RoomId roomId={roomId} />
     </div>
   );
 };
