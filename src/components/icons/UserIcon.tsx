@@ -10,7 +10,7 @@ export const UserIcon = ({ imageUrl, ...props }: UserIconProps) => {
   return (
     <span css={icon} {...props}>
       {imageUrl ? (
-        <img src={imageUrl} alt="アイコンの画像" />
+        <img css={img} src={imageUrl} alt="アイコンの画像" />
       ) : (
         <svg
           width="50"
@@ -28,6 +28,10 @@ export const UserIcon = ({ imageUrl, ...props }: UserIconProps) => {
     </span>
   );
 };
+
+const img = css`
+  width: 80px;
+`;
 
 const icon = css`
   width: 68px;

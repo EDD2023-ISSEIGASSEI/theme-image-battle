@@ -17,7 +17,7 @@ export const SignupFormCard = () => {
   const [iconImageUrl, setIconImageUrl] = useState<string | null>(null);
 
   const onClick = async () => {
-    const idIsExists = await fetch("/api/auth/idIsExists", {
+    const idIsExistsRes = await fetch("/api/auth/idIsExists", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -27,7 +27,11 @@ export const SignupFormCard = () => {
       })
     });
 
-    if (!idIsExists) {
+    const idIsExistsData = await idIsExistsRes.json();
+
+    if (idIsExistsData.isExists) {
+      alert("違うID名にしてください。");
+    } else {
       await fetch("/api/auth/signUp", {
         method: "POST",
         headers: {
@@ -41,8 +45,6 @@ export const SignupFormCard = () => {
         })
       });
       navigate("/auth/otp");
-    } else {
-      alert("違うID名にしてください。");
     }
   };
 
