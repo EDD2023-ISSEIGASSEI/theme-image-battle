@@ -27,6 +27,7 @@ import { RoomId } from "~/components/RoomId";
 import { ResultImage } from "~/components/ResultImage";
 import logo from "~/assets/images/logo.png";
 import { LoginPage } from "~/components/screens/LoginPage";
+import { SearchForm } from "~/components/SearchForm";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -52,6 +53,7 @@ export const SamplePage = () => {
         <h1 css={title}>コンポーネント確認ページ</h1>
         <Card>Cardコンポーネントです</Card>
         <TextInput placeholder="TextInputコンポーネントです" />
+        <SearchForm placeholder="SearchFormコンポーネントです" />
         <Button onClick={() => console.log("こんにちは")}>
           Buttonコンポーネントです
         </Button>

@@ -9,6 +9,8 @@ type RoomCardProps = {
 
 export const RoomCard = ({ name, id, currentPeople }: RoomCardProps) => {
   const card = css`
+    font-size: 1.5rem;
+    text-align: center;
     ${currentPeople !== 7 &&
     "cursor: pointer;&:hover {box-shadow: 4px 4px 8px #af9e43, -4px -4px 8px #ffff73;};transition:0.3s;"};
     ${currentPeople === 7 &&
