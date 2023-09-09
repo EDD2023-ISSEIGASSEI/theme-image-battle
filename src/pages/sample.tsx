@@ -19,6 +19,7 @@ import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
 import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
 import { ResultRankItem } from "~/components/ResultRankItem";
 import { ResultPointItem } from "~/components/ResultPointItem";
+import { UserStatusList } from "~/components/UserStatusList";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -46,22 +47,7 @@ export const SamplePage = () => {
       </Button>
       <Button color="secondary">Button（secondary）コンポーネントです</Button>
       <Divider direction="horizontal" />
-      <div css={userListWrapper}>
-        <ul css={userList}>
-          {USER_STATUS_LIST.map((userStatus) => (
-            <li key={userStatus.id}>
-              <UserStatus
-                id={userStatus.id}
-                name={userStatus.name}
-                score={userStatus.score}
-                isAction={userStatus.isAction}
-                role={userStatus.role}
-              />
-            </li>
-          ))}
-        </ul>
-        <Divider direction="vertical" />
-      </div>
+      <UserStatusList userStatusList={USER_STATUS_LIST} />
       <div css={tagAndIconList}>
         <CheckTag isChecked />
         <CheckTag />
