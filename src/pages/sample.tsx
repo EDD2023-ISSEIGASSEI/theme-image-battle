@@ -47,22 +47,7 @@ export const SamplePage = () => {
       </Button>
       <Button color="secondary">Button（secondary）コンポーネントです</Button>
       <Divider direction="horizontal" />
-      <div css={userListWrapper}>
-        <ul css={userList}>
-          {USER_STATUS_LIST.map((userStatus) => (
-            <li key={userStatus.id}>
-              <UserStatus
-                id={userStatus.id}
-                name={userStatus.name}
-                score={userStatus.score}
-                isAction={userStatus.isAction}
-                role={userStatus.role}
-              />
-            </li>
-          ))}
-        </ul>
-        <Divider direction="vertical" />
-      </div>
+      <UserStatusList userStatusList={USER_STATUS_LIST} />
       <div css={tagAndIconList}>
         <CheckTag isChecked />
         <CheckTag />
@@ -96,7 +81,6 @@ export const SamplePage = () => {
         point={200}
         replyTheme="交通事故に遭うhoge太郎"
       />
-      <UserStatusList userStatusList={USER_STATUS_LIST} />
     </div>
   );
 };
