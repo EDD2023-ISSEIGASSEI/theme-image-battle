@@ -5,6 +5,7 @@ import { StartPage } from "~/components/screens/StartPage";
 import { ExlanationOTPPage } from "~/components/screens/ExplanationOTPPage";
 import { AuthOTPPage } from "~/components/screens/AuthOTPPage";
 import { CreateRoomPage } from "~/components/screens/CreateRoomPage";
+import { SignupScreen } from "~/components/screens/SignupScreen";
 
 export const SampleScreenPage = () => {
   return (
@@ -14,6 +15,7 @@ export const SampleScreenPage = () => {
       <ExlanationOTPPage />
       <AuthOTPPage />
       <CreateRoomPage />
+      <SignupScreen />
     </div>
   );
 };
