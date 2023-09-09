@@ -3,13 +3,13 @@ import { Button } from "./Button";
 import { UserIcon } from "./icons/UserIcon";
 
 type HeaderProps = {
-  imageUrl: string;
+  imageUrl: string | null;
 };
 
 export const Header = ({ imageUrl }: HeaderProps) => {
   return (
     <header css={header}>
-      <img src="/src/assets/images/logo.png" alt="ロゴ" />
+      <img css={imageStyle} src="/src/assets/images/logo.png" alt="ロゴ" />
       {imageUrl ? (
         <div css={buttons}>
           <Button color="secondary">Sign out</Button>
@@ -17,23 +17,35 @@ export const Header = ({ imageUrl }: HeaderProps) => {
         </div>
       ) : (
         <div css={buttons}>
-          <Button>Login</Button>
-          <Button color="secondary">Sign up</Button>
+          <Button css={buttonStyle}>Login</Button>
+          <Button css={buttonStyle} color="secondary">Sign up</Button>
         </div>
       )}
     </header>
   );
 };
 
+const imageStyle = css`
+  width: 100px;
+`;
+
 const header = css`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 40px;
 `;
 
 const buttons = css`
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
 `;
+
+const buttonStyle = css`
+  font-size: 1.3rem;
+  padding: 8px 15px;
+  margin-bottom: 0;
+`;
+

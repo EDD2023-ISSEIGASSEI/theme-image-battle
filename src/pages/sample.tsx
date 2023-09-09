@@ -25,6 +25,7 @@ import { SignupFormCard } from "~/components/cards/SignupFormCard";
 import { Header } from "~/components/Header";
 import { RoomId } from "~/components/RoomId";
 import { ResultImage } from "~/components/ResultImage";
+import { LoginPage } from "~/components/screens/LoginPage";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -45,6 +46,7 @@ export const SamplePage = () => {
   }, [time]);
 
   return (
+  <>
     <div css={container}>
       <h1 css={title}>コンポーネント確認ページ</h1>
       <Card>Cardコンポーネントです</Card>
@@ -101,6 +103,8 @@ export const SamplePage = () => {
       <RoomId roomId={roomId} />
       <ResultImage />
     </div>
+    <LoginPage />
+  </>
   );
 };
 
@@ -113,7 +117,7 @@ const container = css`
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  height: 800vh;
+  height: 1000vh;
   padding: 80px;
   background: ${colors.primary};
 `;
