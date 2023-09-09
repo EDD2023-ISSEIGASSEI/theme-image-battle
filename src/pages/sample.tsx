@@ -13,7 +13,6 @@ import { SelectField } from "~/components/SelectField";
 import { Timer } from "~/components/Timer";
 import { useEffect, useState } from "react";
 import { RoomCard } from "~/components/RoomCard";
-import { UserStatus } from "~/components/UserStatus";
 import { LoginFormCard } from "~/components/cards/LoginFormCard";
 import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
 import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
@@ -21,6 +20,7 @@ import { ResultRankItem } from "~/components/ResultRankItem";
 import { ResultPointItem } from "~/components/ResultPointItem";
 import { UserStatusList } from "~/components/UserStatusList";
 import { WaitingUserIcon } from "~/components/WaitingUserIcon";
+import { ExplanationOTPCard } from "~/components/cards/ExplanationOTPCard";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -88,6 +88,7 @@ export const SamplePage = () => {
         name="hogeくん"
         id="@fwwithva"
       />
+      <ExplanationOTPCard />
     </div>
   );
 };
