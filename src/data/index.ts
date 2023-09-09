@@ -1,6 +1,5 @@
+import { RoomCardProps } from "~/components/RoomCard";
 import { UserStatusProps } from "~/components/UserStatus";
-
-
 
 export const USER_STATUS_LIST: UserStatusProps[] = [
   {
@@ -40,13 +39,7 @@ export const USER_STATUS_LIST: UserStatusProps[] = [
   }
 ];
 
-type RoomCardProps = {
-  name: string;
-  id: string;
-  currentPeople: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
-};
-
-export const ROOM_LIST:RoomCardProps[] = [
+export const ROOM_LIST: RoomCardProps[] = [
   {
     name: "ほげ太郎",
     id: "fd;qb3-7gna;ojef",
@@ -66,6 +59,5 @@ export const ROOM_LIST:RoomCardProps[] = [
     name: "もも太郎",
     id: "fd;qcc7gna;ojef",
     currentPeople: 7
-  },
+  }
 ];
-

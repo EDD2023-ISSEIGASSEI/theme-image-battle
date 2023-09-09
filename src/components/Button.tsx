@@ -29,6 +29,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const common = css`
+    min-width: fit-content;
     padding: 10px 14px;
     font-size: 1.6rem;
     border-radius: 8px;
