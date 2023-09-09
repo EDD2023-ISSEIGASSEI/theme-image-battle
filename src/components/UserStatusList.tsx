@@ -11,7 +11,7 @@ export const UserStatusList = ({ userStatusList }: UserStatusListProps) => {
     <div css={wrapper}>
       <ul css={list}>
         {userStatusList.map((user) => (
-          <li>
+          <li key={user.id}>
             <UserStatus
               id={user.id}
               name={user.name}
