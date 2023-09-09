@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { Button } from "./Button";
 import { UserIcon } from "./icons/UserIcon";
+import deta from "~/assets/images/logo.png";
 
 type HeaderProps = {
   imageUrl: string | null;
@@ -9,7 +10,7 @@ type HeaderProps = {
 export const Header = ({ imageUrl }: HeaderProps) => {
   return (
     <header css={header}>
-      <img css={imageStyle} src="/src/assets/images/logo.png" alt="ロゴ" />
+      <img css={imageStyle} src={deta} alt="ロゴ" />
       {imageUrl ? (
         <div css={buttons}>
           <Button color="secondary">Sign out</Button>
