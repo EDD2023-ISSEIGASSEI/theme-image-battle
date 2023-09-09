@@ -34,6 +34,7 @@ const header = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 40px;
 `;
 
 const buttons = css`
