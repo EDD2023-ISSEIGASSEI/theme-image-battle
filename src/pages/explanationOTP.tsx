@@ -5,7 +5,7 @@ import { Header } from "../components/Header";
 export const ExlanationOTPPage = () => {
   return (
     <div css={pageContainer}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={cardContainer}>
         <ExplanationOTPCard />
       </div>

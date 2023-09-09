@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import { Header } from "../components/Header";
 import { CreateRoomFormCard } from "../components/cards/CreateRoomFormCard";
+import { colors } from "~/styles/themes/colors";
 
 export const CreateRoomPage = () => {
   return (
@@ -19,6 +20,7 @@ const createRoomPageStyle = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: ${colors.primary};
 `;
 
 const formContainerStyle = css`

@@ -13,13 +13,19 @@ export const Header = ({ user }: HeaderProps) => {
   const navigate = useNavigate();
 
   const signOutHandler = async () => {
-    await fetch("/api/auth/signOut", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({})
-    });
+    try {
+      await fetch("/api/auth/signOut", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({})
+      });
+
+      location.reload();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (

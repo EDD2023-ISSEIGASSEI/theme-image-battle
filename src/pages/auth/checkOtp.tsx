@@ -2,29 +2,35 @@ import { css } from "@emotion/react";
 import { Header } from "../../components/Header";
 import { AuthOTPFormCard } from "../../components/cards/AuthOTPFormCard";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CheckOtpPage = () => {
   const [otp, setOtp] = useState("");
+  const navigate = useNavigate();
 
   const onClick = () => {
     (async () => {
-      await fetch("/api/auth/checkOtp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          otp
-        })
-      });
+      try {
+        await fetch("/api/auth/checkOtp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            otp
+          })
+        });
 
-      console.log(typeof otp);
+        navigate("/");
+      } catch (e) {
+        console.error(e);
+      }
     })();
   };
 
   return (
     <div css={pageContainer}>
-      <Header imageUrl={null} />
+      <Header />
       <div css={cardContainer}>
         <AuthOTPFormCard setOtp={setOtp} otp={otp} onClick={onClick} />
       </div>
