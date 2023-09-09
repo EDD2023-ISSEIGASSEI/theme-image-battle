@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
-import { Header } from "../Header";
-import { AuthOTPFormCard } from "../cards/AuthOTPFormCard";
+import { Header } from "../../components/Header";
+import { AuthOTPFormCard } from "../../components/cards/AuthOTPFormCard";
 
-export const AuthOTPPage = () => {
+export const OtpPage = () => {
   return (
     <div css={pageContainer}>
       <Header imageUrl={null} />

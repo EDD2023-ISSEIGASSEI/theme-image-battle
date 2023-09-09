@@ -1,10 +1,10 @@
-import { css } from '@emotion/react';
-import { Header } from '../Header';
-import { ROOM_LIST } from '~/data';
-import { RoomCard } from '../RoomCard';
-import { SearchForm } from '../SearchForm';
+import { css } from "@emotion/react";
+import { Header } from "../components/Header";
+import { ROOM_LIST } from "~/data";
+import { RoomCard } from "../components/RoomCard";
+import { SearchForm } from "../components/SearchForm";
 
-export const SearchRoomScreen = () => {
+export const SearchRoomPage = () => {
   return (
     <div css={pageContainer}>
       <Header imageUrl={null} />
@@ -12,13 +12,18 @@ export const SearchRoomScreen = () => {
         <SearchForm placeholder="部屋ID検索" />
         <div css={formContainerStyle}>
           {ROOM_LIST.map((room) => (
-            <RoomCard key={room.id} name={room.name} id={room.id} currentPeople={room.currentPeople} />
+            <RoomCard
+              key={room.id}
+              name={room.name}
+              id={room.id}
+              currentPeople={room.currentPeople}
+            />
           ))}
         </div>
       </div>
     </div>
   );
-}
+};
 
 const pageContainer = css`
   width: 100%;
@@ -33,7 +38,6 @@ const bodyStyle = css`
   margin: 50px auto;
 `;
 
-
 // 二列で表示
 const formContainerStyle = css`
   display: grid;
@@ -41,4 +45,3 @@ const formContainerStyle = css`
   gap: 50px;
   margin-top: 50px;
 `;
-
