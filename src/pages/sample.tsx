@@ -13,13 +13,13 @@ import { SelectField } from "~/components/SelectField";
 import { Timer } from "~/components/Timer";
 import { useEffect, useState } from "react";
 import { RoomCard } from "~/components/RoomCard";
-import { UserStatus } from "~/components/UserStatus";
 import { LoginFormCard } from "~/components/cards/LoginFormCard";
 import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
 import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
 import { ResultRankItem } from "~/components/ResultRankItem";
 import { ResultPointItem } from "~/components/ResultPointItem";
 import { UserStatusList } from "~/components/UserStatusList";
+import { ExplanationOTPCard } from "~/components/cards/ExplanationOTPCard";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -81,6 +81,7 @@ export const SamplePage = () => {
         point={200}
         replyTheme="交通事故に遭うhoge太郎"
       />
+      <ExplanationOTPCard />
     </div>
   );
 };
