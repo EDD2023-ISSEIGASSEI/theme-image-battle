@@ -29,8 +29,8 @@ export const LoginFormCard = () => {
 
 
 const title = css`
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-size: 2.3rem;
+  margin-bottom: 25px;
   color: ${colors.black.lighten[1]};
 `;
 
@@ -38,15 +38,16 @@ const cardContainer = css`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 70%;
 `;
 
 const inputSection = css`
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
   & > * {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 `;
 
