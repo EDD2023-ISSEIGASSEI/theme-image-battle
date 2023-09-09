@@ -1,6 +1,6 @@
+import { RoomCardProps } from "~/components/RoomCard";
 import { UserStatusProps } from "~/components/UserStatus";
-
-
+import { WaitingUserIconProps } from "~/components/WaitingUserIcon";
 
 export const USER_STATUS_LIST: UserStatusProps[] = [
   {
@@ -40,13 +40,7 @@ export const USER_STATUS_LIST: UserStatusProps[] = [
   }
 ];
 
-type RoomCardProps = {
-  name: string;
-  id: string;
-  currentPeople: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
-};
-
-export const ROOM_LIST:RoomCardProps[] = [
+export const ROOM_LIST: RoomCardProps[] = [
   {
     name: "ほげ太郎",
     id: "fd;qb3-7gna;ojef",
@@ -66,6 +60,56 @@ export const ROOM_LIST:RoomCardProps[] = [
     name: "もも太郎",
     id: "fd;qcc7gna;ojef",
     currentPeople: 7
-  },
+  }
 ];
 
+export const WAITING_USER_LIST: WaitingUserIconProps[] = [
+  {
+    isOwner: true,
+    imageUrl: "/images/vite.svg",
+    name: "たけし",
+    id: "@fa25tp0p"
+  },
+  {
+    isOwner: false,
+    imageUrl: "",
+    name: "たけし",
+    id: "@fa25p8f"
+  },
+  {
+    isOwner: false,
+    imageUrl: "/images/vite.svg",
+    name: "たけし",
+    id: "@fa2aa8rhf"
+  },
+  {
+    isOwner: false,
+    imageUrl: "",
+    name: "たけし",
+    id: "@factp0p8rhf"
+  },
+  {
+    isOwner: false,
+    imageUrl: "",
+    name: "たけし",
+    id: "@fftp0p8rhfddd"
+  },
+  {
+    isOwner: false,
+    imageUrl: "/images/vite.svg",
+    name: "たけし",
+    id: "@fa25aa8rhf"
+  },
+  {
+    isOwner: false,
+    imageUrl: "",
+    name: "いいい",
+    id: "@faactp0p8r"
+  },
+  {
+    isOwner: false,
+    imageUrl: "",
+    name: "あああ",
+    id: "@facc25ddd"
+  }
+];

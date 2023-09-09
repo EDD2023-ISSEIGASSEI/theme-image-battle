@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { Card } from "./Card";
 
-type RoomCardProps = {
+export type RoomCardProps = {
   name: string;
   id: string;
   currentPeople: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;

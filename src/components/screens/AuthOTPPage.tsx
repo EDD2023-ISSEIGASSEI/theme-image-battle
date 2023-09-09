@@ -11,7 +11,7 @@ export const AuthOTPPage = () => {
       </div>
     </div>
   );
-}
+};
 
 const pageContainer = css`
   display: flex;
@@ -28,4 +28,4 @@ const cardContainer = css`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;

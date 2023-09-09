@@ -1,22 +1,24 @@
 import { OwnerTag } from "./tags/OwnerTag";
 import { UserIcon } from "./icons/UserIcon";
 import { css } from "@emotion/react";
+import { ComponentPropsWithRef } from "react";
 
-type WaitingUserIconProps = {
+export interface WaitingUserIconProps extends ComponentPropsWithRef<"div"> {
   isOwner: boolean;
   imageUrl?: string;
   name: string;
   id: string;
-};
+}
 
 export const WaitingUserIcon = ({
   isOwner,
   imageUrl,
   name,
-  id
+  id,
+  ...props
 }: WaitingUserIconProps) => {
   return (
-    <div css={wrapper}>
+    <div css={wrapper} {...props}>
       {isOwner && <OwnerTag css={tag} />}
       <UserIcon imageUrl={imageUrl} css={icon} />
       <p css={nameStyle}>{name}</p>
@@ -27,7 +29,7 @@ export const WaitingUserIcon = ({
 
 const wrapper = css`
   align-items: center;
-  height: 160px;
+  width: 100px;
   display: flex;
   justify-content: start;
   flex-direction: column;

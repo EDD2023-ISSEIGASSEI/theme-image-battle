@@ -12,11 +12,13 @@ type SelectFieldProps = {
 export const SelectField = ({ optionList, placeholder }: SelectFieldProps) => {
   return (
     <select css={select} required>
-      <option value={""}>
+      <option value={""} hidden>
         {placeholder}
       </option>
       {optionList.map((option) => (
-        <option key={option.value} value={option.value}>{option.label}</option>
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
       ))}
     </select>
   );
@@ -36,16 +38,15 @@ const select = css`
   &:invalid {
     color: ${colors.black.lighten[2]};
   }
-  
+
   & > option {
     color: ${colors.black.lighten[1]};
   }
-  
+
   & > option:first-of-type {
     color: ${colors.black.lighten[2]};
   }
   &:hover {
     box-shadow: inset 2px 2px 3px #d4c052, inset -2px -2px 3px #ffea64;
   }
-  
 `;
