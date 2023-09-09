@@ -6,7 +6,7 @@ import { User } from "~/types";
 import { useLoaderData } from "react-router-dom";
 
 export const ExlanationOTPPage = () => {
-  const user = useLoaderData() as User;
+  const user = useLoaderData() as User | null;
 
   return (
     <div css={pageContainer}>

@@ -3,10 +3,10 @@ import { ChangeEvent } from "react";
 import { colors } from "~/styles/themes/colors";
 
 type UploadFileInputProps = {
-  setImageUrl: React.Dispatch<React.SetStateAction<string | null>>;
+  setIconImageUrl: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
-export const UploadFileInput = ({ setImageUrl }: UploadFileInputProps) => {
+export const UploadFileInput = ({ setIconImageUrl }: UploadFileInputProps) => {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
 
@@ -14,7 +14,7 @@ export const UploadFileInput = ({ setImageUrl }: UploadFileInputProps) => {
       const reader = new FileReader();
       reader.onload = () => {
         if (typeof reader.result === "string") {
-          setImageUrl(reader.result);
+          setIconImageUrl(reader.result);
         }
       };
 

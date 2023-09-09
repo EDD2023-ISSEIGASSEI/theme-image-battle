@@ -8,7 +8,7 @@ import { useLoaderData } from "react-router-dom";
 
 export const OtpPage = () => {
   const [otp, setOtp] = useState("");
-  const user = useLoaderData() as User;
+  const user = useLoaderData() as User | null;
 
   const onClick = () => {
     (async () => {

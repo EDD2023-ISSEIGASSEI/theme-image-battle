@@ -21,15 +21,18 @@ import { CheckOtpPage } from "./pages/auth/checkOtp";
 
 // サンプルデータを返す関数
 const userLoader = async () => {
-  const res = await fetch("/api/user", {
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
+  try {
+    const res = await fetch("/api/user", {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
 
-  const json = await res.json();
-
-  return json;
+    const json = await res.json();
+    return json;
+  } catch {
+    return null;
+  }
 };
 
 const router = createBrowserRouter(

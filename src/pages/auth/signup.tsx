@@ -6,7 +6,7 @@ import { useLoaderData } from "react-router-dom";
 import { User } from "~/types";
 
 export const SignupPage = () => {
-  const user = useLoaderData() as User;
+  const user = useLoaderData() as User | null;
 
   return (
     <div css={createRoomPageStyle}>

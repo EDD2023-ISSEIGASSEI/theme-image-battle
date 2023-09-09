@@ -14,22 +14,36 @@ export const SignupFormCard = () => {
   const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [iconImageUrl, setIconImageUrl] = useState<string | null>(null);
 
   const onClick = async () => {
-    await fetch("/api/auth/signUp", {
+    const idIsExists = await fetch("/api/auth/idIsExists", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        id: id,
-        name: name,
-        password: password,
-        iconImageUrl: imageUrl
+        id
       })
     });
-    navigate("/auth/otp");
+
+    if (!idIsExists) {
+      await fetch("/api/auth/signUp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id,
+          name,
+          password,
+          iconImageUrl
+        })
+      });
+      navigate("/auth/otp");
+    } else {
+      alert("違うID名にしてください。");
+    }
   };
 
   return (
@@ -55,10 +69,10 @@ export const SignupFormCard = () => {
         <p css={description}>
           アイコンを設定しない場合は、デフォルトのアイコンが設定されます。
         </p>
-        <UserIcon imageUrl={imageUrl ? imageUrl : ""} />
+        <UserIcon imageUrl={iconImageUrl ? iconImageUrl : ""} />
 
         <div css={selection}>
-          <UploadFileInput setImageUrl={setImageUrl} />
+          <UploadFileInput setIconImageUrl={setIconImageUrl} />
           <Button onClick={onClick} color="primary">
             Sign up
           </Button>

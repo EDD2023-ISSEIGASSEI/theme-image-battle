@@ -8,7 +8,7 @@ import { User } from "~/types";
 
 export const CheckOtpPage = () => {
   const [otp, setOtp] = useState("");
-  const user = useLoaderData() as User;
+  const user = useLoaderData() as User | null;
   const navigate = useNavigate();
 
   const onClick = () => {

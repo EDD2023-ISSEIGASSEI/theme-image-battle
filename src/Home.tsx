@@ -8,8 +8,7 @@ import { User } from "./types";
 export const HomePage = () => {
   const navigate = useNavigate();
 
-  const user = useLoaderData() as User;
-  console.log("user: ", user);
+  const user = useLoaderData() as User | null;
 
   return (
     <div css={pageContainer}>

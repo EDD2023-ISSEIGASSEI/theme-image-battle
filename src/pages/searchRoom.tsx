@@ -9,7 +9,7 @@ import { useLoaderData } from "react-router-dom";
 
 export const SearchRoomPage = () => {
   const [roomList, setRoomList] = useState<Room[]>([]);
-  const user = useLoaderData() as User;
+  const user = useLoaderData() as User | null;
 
   useEffect(() => {
     (async () => {
