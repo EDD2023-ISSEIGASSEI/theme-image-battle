@@ -17,6 +17,7 @@ import { UserStatus } from "~/components/UserStatus";
 import { LoginFormCard } from "~/components/cards/LoginFormCard";
 import { CreateRoomFormCard } from "~/components/cards/CreateRoomFormCard";
 import { AuthOTPFormCard } from "~/components/cards/AuthOTPFormCard";
+import { ResultRankItem } from "~/components/ResultRankItem";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -73,7 +74,7 @@ export const SamplePage = () => {
           { value: 1, label: "1人" },
           { value: 2, label: "2人" },
           { value: 3, label: "3人" },
-          { value: 4, label: "4人" },
+          { value: 4, label: "4人" }
         ]}
         placeholder="最大人数"
       />
@@ -86,6 +87,8 @@ export const SamplePage = () => {
       <LoginFormCard />
       <CreateRoomFormCard />
       <AuthOTPFormCard />
+      <ResultRankItem rank={1} name="高橋名人" point={300} />
+      <ResultRankItem rank={1} name="ho" point={10} />
     </div>
   );
 };
@@ -99,7 +102,7 @@ const container = css`
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  height: 200vh;
+  height: 800vh;
   padding: 80px;
   background: ${colors.primary};
 `;
