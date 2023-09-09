@@ -1,13 +1,13 @@
 import { css } from "@emotion/react";
 import { colors } from "../styles/themes/colors";
-import React, { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef } from "react";
 
 interface TextInputProps extends ComponentPropsWithRef<"input"> {
   placeholder: string;
 }
 
 export const TextInput = ({ placeholder, ...props }: TextInputProps) => {
-  return <input type="text" placeholder={placeholder} css={input} {...props}/>;
+  return <input type="text" placeholder={placeholder} css={input} {...props} />;
 };
 
 const input = css`
