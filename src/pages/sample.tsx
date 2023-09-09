@@ -21,6 +21,7 @@ import { ResultPointItem } from "~/components/ResultPointItem";
 import { UserStatusList } from "~/components/UserStatusList";
 import { WaitingUserIcon } from "~/components/WaitingUserIcon";
 import { ExplanationOTPCard } from "~/components/cards/ExplanationOTPCard";
+import { SignupFormCard } from "~/components/cards/SignupFormCard";
 
 // コンポーネント確認ページ
 export const SamplePage = () => {
@@ -89,6 +90,7 @@ export const SamplePage = () => {
         id="@fwwithva"
       />
       <ExplanationOTPCard />
+      <SignupFormCard />
     </div>
   );
 };
@@ -107,11 +109,6 @@ const container = css`
   background: ${colors.primary};
 `;
 
-const userListWrapper = css`
-  display: flex;
-  gap: 20px;
-`;
-
 const tagAndIconList = css`
   display: flex;
   gap: 20px;
@@ -119,11 +116,5 @@ const tagAndIconList = css`
 
 const roomList = css`
   display: flex;
-  gap: 20px;
-`;
-
-const userList = css`
-  display: flex;
-  flex-direction: column;
   gap: 20px;
 `;
