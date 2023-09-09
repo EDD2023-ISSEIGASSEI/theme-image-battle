@@ -10,12 +10,14 @@ import Home from "./Home";
 import "./styles/reset.css";
 import "./styles/global.css";
 import { SamplePage } from "./pages/sample";
+import { SampleScreenPage } from "./pages/sampleScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Home />} />
       <Route path="/sample" element={<SamplePage />} />
+      <Route path="/sampleScreens" element={<SampleScreenPage />} />
     </Route>
   )
 );
