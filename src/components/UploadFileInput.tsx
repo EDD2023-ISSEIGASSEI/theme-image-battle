@@ -36,11 +36,11 @@ export const UploadFileInput = ({ setImageUrl }: UploadFileInputProps) => {
 };
 
 const label = css`
-  padding: 8px 12px;
+  border-radius: 8px;
+  padding: 10px 14px;
   font-size: 1.6rem;
   color: ${colors.black.lighten[1]};
   font-weight: 600;
-  border-radius: 12px;
   background: ${colors.primary};
   box-shadow: 8px 8px 16px #af9e43, -8px -8px 16px #ffff73;
   transition: 0.3s;
