@@ -1,4 +1,3 @@
-import { WAITING_USER_LIST } from "~/data";
 import { Header } from "../Header";
 import { RoomId } from "../RoomId";
 import { WaitingUserIcon } from "../WaitingUserIcon";
@@ -6,65 +5,73 @@ import { css } from "@emotion/react";
 import { Button } from "../Button";
 import { SelectField } from "../SelectField";
 import { colors } from "~/styles/themes/colors";
-import { useLoaderData, useLocation } from "react-router-dom";
-import { User } from "~/types";
+import { useLoaderData } from "react-router-dom";
+import { User, waitRoom } from "~/types";
 import { useEffect, useState } from "react";
-
-const optionList = [
-  { value: 1, label: "1ラウンド" },
-  { value: 2, label: "2ラウンド" },
-  { value: 3, label: "3ラウンド" },
-  { value: 4, label: "4ラウンド" }
-];
 
 export const WaitingRoomScreen = () => {
   const user = useLoaderData() as User | null;
-  const search = useLocation().search;
-  const query = new URLSearchParams(search);
-  const id = query.get("id");
-  const [room, setRoom] = useState();
+  const [waitRoom, setWaitRoom] = useState<waitRoom>();
+  const [selectedValue, setSelectedValue] = useState("");
+
+  // select要素の変更ハンドラー
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    // 選択された値をstateに設定
+    setSelectedValue(event.target.value);
+  };
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("/api/room/join", {
-        method: "POST",
+      const res = await fetch("/api/game/phaseState", {
         headers: {
           "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          id,
-          password: "test"
-        })
+        }
       });
 
       const json = await res.json();
-      setRoom(json);
+      console.log("phase", json);
+      setWaitRoom(json);
     })();
   }, []);
+
+  const startHandler = async () => {
+    await fetch("/api/game/start", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        rownd: selectedValue
+      })
+    });
+  };
+
+  if (!waitRoom) return <div>loading...</div>;
 
   return (
     <div css={container}>
       <Header user={user?.id ? user : null} />
       <div css={content}>
-        <h1>部屋名</h1>
-        <RoomId roomId="578305749" />
+        <h1>{waitRoom.state.roomInfo.name}</h1>
+        <RoomId roomId={waitRoom.state.roomInfo.id} />
         <p
           css={css`
             font-size: 2.4rem;
             margin: 32px;
           `}
         >
-          {5}/{7}
+          {waitRoom.state.roomInfo.playerNum}/
+          {waitRoom.state.roomInfo.maxPlayerNum}
         </p>
         <ul css={list}>
-          {WAITING_USER_LIST.map((user) => (
-            <li css={item} key={user.id}>
+          {waitRoom.state.players.map((player) => (
+            <li css={item} key={player.id}>
               <WaitingUserIcon
                 css={userIcon}
-                id={user.id}
-                name={user.name}
-                isOwner={user.isOwner}
-                imageUrl={user.imageUrl}
+                id={player.id}
+                name={player.name}
+                isOwner={player.id === waitRoom.state.roomInfo.ownerPlayerId}
+                imageUrl={player.iconImageUrl}
               />
             </li>
           ))}
@@ -79,13 +86,24 @@ export const WaitingRoomScreen = () => {
           `}
         >
           <Button color="secondary">戻る</Button>
-          <SelectField optionList={optionList} placeholder="1〜5ラウンド" />
-          <Button>作成</Button>
+          <SelectField
+            onChange={handleSelectChange}
+            optionList={optionList}
+            placeholder="1〜5ラウンド"
+          />
+          <Button onClick={startHandler}>スタート</Button>
         </div>
       </div>
     </div>
   );
 };
+
+const optionList = [
+  { value: 1, label: "1ラウンド" },
+  { value: 2, label: "2ラウンド" },
+  { value: 3, label: "3ラウンド" },
+  { value: 4, label: "4ラウンド" }
+];
 
 const container = css`
   height: 100vh;
