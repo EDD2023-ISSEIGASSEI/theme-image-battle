@@ -18,6 +18,8 @@ import { ExlanationOTPPage } from "./pages/explanationOTP";
 import { SearchRoomPage } from "./pages/searchRoom";
 import { HomePage } from "./Home";
 import { CheckOtpPage } from "./pages/auth/checkOtp";
+import { WaitingRoomScreen } from "./components/screens/WaitingRoomScreen";
+import { RoomPage } from "./pages/auth/room";
 
 // サンプルデータを返す関数
 const userLoader = async () => {
@@ -30,7 +32,8 @@ const userLoader = async () => {
 
     const json = await res.json();
     return json;
-  } catch {
+  } catch (e) {
+    console.error(e);
     return null;
   }
 };
@@ -48,6 +51,7 @@ const router = createBrowserRouter(
         loader={userLoader}
       />
       <Route path="/auth/signup" element={<SignupPage />} loader={userLoader} />
+      <Route path="/auth/room" element={<RoomPage />} loader={userLoader} />
 
       <Route
         path="/createRoom"
@@ -62,6 +66,12 @@ const router = createBrowserRouter(
       <Route
         path="/searchRoom"
         element={<SearchRoomPage />}
+        loader={userLoader}
+      />
+
+      <Route
+        path="/waitingRoom/:id"
+        element={<WaitingRoomScreen />}
         loader={userLoader}
       />
 

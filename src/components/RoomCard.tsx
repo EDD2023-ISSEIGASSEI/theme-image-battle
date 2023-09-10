@@ -19,6 +19,24 @@ export const RoomCard = ({ room }: RoomCardProps) => {
   const onClick = () => {
     if (room.playerNum !== 7) {
       console.log("roomData: ", room);
+      // (async () => {
+      //   const res = await fetch("/api/room", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json"
+      //     },
+      //     body: JSON.stringify({
+      //       id: room.id,
+      //       password: room.password
+      //     })
+      //   });
+
+      //   const test = await res.json();
+
+      //   location.href = `/waitingRoom/${test.id}`;
+      //   console.log("aaa", test);
+      // })();
+      location.href = "/auth/room";
     }
   };
 

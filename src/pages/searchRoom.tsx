@@ -28,7 +28,7 @@ export const SearchRoomPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header user={user} />
+      <Header user={user?.id ? user : null} />
       <div css={bodyStyle}>
         <SearchForm placeholder="部屋ID検索" />
         <div css={formContainerStyle}>
@@ -43,7 +43,7 @@ export const SearchRoomPage = () => {
 
 const pageContainer = css`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

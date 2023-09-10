@@ -28,7 +28,7 @@ export const OtpPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header user={user} />
+      <Header user={user?.id ? user : null} />
       <div css={cardContainer}>
         <AuthOTPFormCard otp={otp} setOtp={setOtp} onClick={onClick} />
       </div>

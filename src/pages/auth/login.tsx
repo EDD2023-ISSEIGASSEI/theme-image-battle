@@ -10,7 +10,7 @@ export const LoginPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header user={user} />
+      <Header user={user?.id ? user : null} />
       <div css={cardContainer}>
         <LoginFormCard />
       </div>

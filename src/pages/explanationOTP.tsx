@@ -10,7 +10,7 @@ export const ExlanationOTPPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header user={user} />
+      <Header user={user?.id ? user : null} />
       <div css={cardContainer}>
         <ExplanationOTPCard />
       </div>

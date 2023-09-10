@@ -41,7 +41,7 @@ export const SignupFormCard = () => {
           id,
           name,
           password,
-          iconImageUrl
+          iconImageUrl: "test"
         })
       });
       navigate("/auth/otp");

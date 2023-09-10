@@ -10,7 +10,7 @@ export const CreateRoomPage = () => {
 
   return (
     <div css={createRoomPageStyle}>
-      <Header user={user} />
+      <Header user={user?.id ? user : null} />
       <div css={formContainerStyle}>
         <CreateRoomFormCard />
       </div>

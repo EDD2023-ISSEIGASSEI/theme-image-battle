@@ -10,9 +10,11 @@ export const HomePage = () => {
 
   const user = useLoaderData() as User | null;
 
+  console.log("test", user?.id);
+
   return (
     <div css={pageContainer}>
-      <Header user={user} />
+      <Header user={user?.id ? user : null} />
       <div css={container}>
         <h1 css={title}>hogeticPhone</h1>
         <p css={description}>画力なし救済用GarticPhone風ゲーム</p>

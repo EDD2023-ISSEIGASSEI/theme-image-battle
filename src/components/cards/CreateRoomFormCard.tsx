@@ -22,7 +22,7 @@ export const CreateRoomFormCard = () => {
   };
 
   const onClick = async () => {
-    await fetch("/api/room", {
+    const res = await fetch("/api/room", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -34,7 +34,9 @@ export const CreateRoomFormCard = () => {
       })
     });
 
-    navigate("/waitingRoom");
+    const json = await res.json();
+
+    navigate(`/waitingRoom/${json.id}`);
   };
 
   return (

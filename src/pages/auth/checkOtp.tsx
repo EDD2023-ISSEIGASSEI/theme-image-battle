@@ -33,7 +33,7 @@ export const CheckOtpPage = () => {
 
   return (
     <div css={pageContainer}>
-      <Header user={user} />
+      <Header user={user?.id ? user : null} />
       <div css={cardContainer}>
         <AuthOTPFormCard setOtp={setOtp} otp={otp} onClick={onClick} />
       </div>
