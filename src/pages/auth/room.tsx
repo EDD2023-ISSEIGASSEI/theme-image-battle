@@ -40,7 +40,6 @@ export const RoomPage = () => {
       <div css={cardContainer}>
         <Card css={cardContainer}>
           <p css={title}>ルームのIDとパスワード入力</p>
-
           <TextInput
             value={id}
             onChange={(event) => setId(event.target.value)}

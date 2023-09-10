@@ -14,3 +14,22 @@ export type Room = {
   password: string;
   playerNum: number;
 };
+
+export type waitRoom = {
+  phase: string;
+  state: {
+    roomInfo: {
+      id: string;
+      name: string;
+      password: string;
+      playerNum: number;
+      maxPlayerNum: number;
+      ownerPlayerId: string;
+    };
+    players: {
+      id: string;
+      name: string;
+      iconImageUrl: string;
+    }[];
+  };
+};

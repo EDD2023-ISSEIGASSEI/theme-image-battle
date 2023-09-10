@@ -50,6 +50,7 @@ const router = createBrowserRouter(
         element={<CheckOtpPage />}
         loader={userLoader}
       />
+
       <Route path="/auth/signup" element={<SignupPage />} loader={userLoader} />
       <Route path="/auth/room" element={<RoomPage />} loader={userLoader} />
 
