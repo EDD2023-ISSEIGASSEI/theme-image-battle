@@ -18,6 +18,7 @@ export const WaitingRoomScreen = () => {
 
   useEffect(() => {
     console.log(message);
+    if (message.content === "") return;
     setWaitRoom({ phase: message.content.phase, state: message.content.state });
   }, [message]);
 
