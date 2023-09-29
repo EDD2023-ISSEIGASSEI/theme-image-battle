@@ -2,13 +2,14 @@ import { css } from "@emotion/react";
 import { Header } from "../../components/Header";
 import { colors } from "~/styles/themes/colors";
 import { User } from "~/types";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { TextInput } from "~/components/TextInput";
 import { Card } from "~/components/Card";
 import { Button } from "~/components/Button";
 import { useState } from "react";
 
 export const RoomPage = () => {
+  const navigate = useNavigate();
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const user = useLoaderData() as User | null;
@@ -28,9 +29,11 @@ export const RoomPage = () => {
         })
       });
 
-      const json = await res.json();
-
-      console.log("aaa", json);
+      if (res.status === 200) {
+        const json = await res.json();
+        console.log("join?", json);
+        navigate(`/waitingRoom/${json.id}`);
+      }
     })();
   };
 
