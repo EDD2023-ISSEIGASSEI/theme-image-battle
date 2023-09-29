@@ -7,7 +7,7 @@ import { UserStatusList } from "../UserStatusList";
 import { Timer } from "../Timer";
 import { TextInput } from "../TextInput";
 
-export const TurnResultScreen = () => {
+export const ThemePromptScreen = () => {
   return (
     <>
       <Header />
