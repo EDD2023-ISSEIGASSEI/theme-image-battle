@@ -8,10 +8,7 @@ import { colors } from "~/styles/themes/colors";
 import { useLoaderData } from "react-router-dom";
 import { User, waitRoom } from "~/types";
 import { useEffect, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { websocketAtom } from "~/state/websocket";
 import { useMessage } from "~/hooks/use-message";
-
 
 export const WaitingRoomScreen = () => {
   const user = useLoaderData() as User | null;
@@ -19,12 +16,11 @@ export const WaitingRoomScreen = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const message = useMessage();
 
-  const conn = useRecoilValue(websocketAtom);
-
   useEffect(() => {
     console.log(message);
-    fetchWaitRoom();
-  }, [message]);  
+    if (message.content === "") return;
+    setWaitRoom({ phase: message.content.phase, state: message.content.state });
+  }, [message]);
 
   // select要素の変更ハンドラー
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
