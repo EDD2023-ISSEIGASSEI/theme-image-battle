@@ -36,7 +36,7 @@ export const CreateRoomFormCard = () => {
 
     const json = await res.json();
 
-    navigate(`/waitingRoom/${json.id}`);
+    navigate(`/game/${json.id}`);
   };
 
   return (

@@ -18,9 +18,9 @@ import { ExlanationOTPPage } from "./pages/explanationOTP";
 import { SearchRoomPage } from "./pages/searchRoom";
 import { HomePage } from "./Home";
 import { CheckOtpPage } from "./pages/auth/checkOtp";
-import { WaitingRoomScreen } from "./components/screens/WaitingRoomScreen";
 import { RoomPage } from "./pages/auth/room";
 import { RecoilRoot } from "recoil";
+import { GamePage } from "./pages/game";
 
 // サンプルデータを返す関数
 const userLoader = async () => {
@@ -71,11 +71,7 @@ const router = createBrowserRouter(
         loader={userLoader}
       />
 
-      <Route
-        path="/waitingRoom/:id"
-        element={<WaitingRoomScreen />}
-        loader={userLoader}
-      />
+      <Route path="/game/:id" element={<GamePage />} loader={userLoader} />
 
       <Route path="/sample" element={<SamplePage />} />
       <Route path="/sampleScreens" element={<SampleScreenPage />} />

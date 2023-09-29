@@ -32,7 +32,7 @@ export const RoomPage = () => {
       if (res.status === 200) {
         const json = await res.json();
         console.log("join?", json);
-        navigate(`/waitingRoom/${json.id}`);
+        navigate(`/game/${json.id}`);
       }
     })();
   };
