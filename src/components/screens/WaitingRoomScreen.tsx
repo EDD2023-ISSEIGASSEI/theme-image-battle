@@ -7,42 +7,21 @@ import { SelectField } from "../SelectField";
 import { colors } from "~/styles/themes/colors";
 import { useLoaderData } from "react-router-dom";
 import { User, waitRoom } from "~/types";
-import { useEffect, useState } from "react";
-import { useMessage } from "~/hooks/use-message";
+import { useState } from "react";
 
-export const WaitingRoomScreen = () => {
+type Props = {
+  waitRoom: waitRoom;
+};
+
+export const WaitingRoomScreen = ({ waitRoom }: Props) => {
   const user = useLoaderData() as User | null;
-  const [waitRoom, setWaitRoom] = useState<waitRoom>();
   const [selectedValue, setSelectedValue] = useState("");
-  const message = useMessage();
-
-  useEffect(() => {
-    console.log(message);
-    if (message.content === "") return;
-    setWaitRoom({ phase: message.content.phase, state: message.content.state });
-  }, [message]);
 
   // select要素の変更ハンドラー
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     // 選択された値をstateに設定
     setSelectedValue(event.target.value);
   };
-
-  const fetchWaitRoom = async () => {
-    const res = await fetch("/api/game/phaseState", {
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-
-    const json = await res.json();
-    console.log("phase", json);
-    setWaitRoom(json);
-  };
-
-  useEffect(() => {
-    fetchWaitRoom();
-  }, []);
 
   const startHandler = async () => {
     await fetch("/api/game/start", {
@@ -55,8 +34,6 @@ export const WaitingRoomScreen = () => {
       })
     });
   };
-
-  if (!waitRoom) return <div>loading...</div>;
 
   return (
     <div css={container}>

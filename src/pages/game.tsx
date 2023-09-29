@@ -36,7 +36,8 @@ export const GamePage = () => {
   }, [message]);
 
   if (phaseState === undefined) return <div>loading...</div>;
-  if (phaseState.phase === PHASE.waiting) return <WaitingRoomScreen />;
+  if (phaseState.phase === PHASE.waiting)
+    return <WaitingRoomScreen waitRoom={phaseState} />;
   if (phaseState.phase === PHASE.generate) return <ThemePromptScreen />;
   if (phaseState.phase === PHASE.guess) return <ResponseThemeScreen />;
   if (phaseState.phase === PHASE.showScore) return <ResponseCheckScreen />;
