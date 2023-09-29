@@ -20,6 +20,7 @@ import { HomePage } from "./Home";
 import { CheckOtpPage } from "./pages/auth/checkOtp";
 import { WaitingRoomScreen } from "./components/screens/WaitingRoomScreen";
 import { RoomPage } from "./pages/auth/room";
+import { RecoilRoot } from "recoil";
 
 // サンプルデータを返す関数
 const userLoader = async () => {
@@ -89,7 +90,9 @@ if (root) {
 
   app.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <RecoilRoot>
+        <RouterProvider router={router} />
+      </RecoilRoot>
     </StrictMode>
   );
 }

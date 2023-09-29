@@ -8,11 +8,23 @@ import { colors } from "~/styles/themes/colors";
 import { useLoaderData } from "react-router-dom";
 import { User, waitRoom } from "~/types";
 import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { websocketAtom } from "~/state/websocket";
+import { useMessage } from "~/hooks/use-message";
+
 
 export const WaitingRoomScreen = () => {
   const user = useLoaderData() as User | null;
   const [waitRoom, setWaitRoom] = useState<waitRoom>();
   const [selectedValue, setSelectedValue] = useState("");
+  const message = useMessage();
+
+  const conn = useRecoilValue(websocketAtom);
+
+  useEffect(() => {
+    console.log(message);
+    fetchWaitRoom();
+  }, [message]);  
 
   // select要素の変更ハンドラー
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -20,18 +32,20 @@ export const WaitingRoomScreen = () => {
     setSelectedValue(event.target.value);
   };
 
-  useEffect(() => {
-    (async () => {
-      const res = await fetch("/api/game/phaseState", {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
+  const fetchWaitRoom = async () => {
+    const res = await fetch("/api/game/phaseState", {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
 
-      const json = await res.json();
-      console.log("phase", json);
-      setWaitRoom(json);
-    })();
+    const json = await res.json();
+    console.log("phase", json);
+    setWaitRoom(json);
+  };
+
+  useEffect(() => {
+    fetchWaitRoom();
   }, []);
 
   const startHandler = async () => {
