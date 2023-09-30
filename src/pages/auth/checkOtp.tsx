@@ -5,16 +5,19 @@ import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { colors } from "~/styles/themes/colors";
 import { User } from "~/types";
+import { useRecoilState } from "recoil";
+import { userId } from "~/state/user";
 
 export const CheckOtpPage = () => {
   const [otp, setOtp] = useState("");
   const user = useLoaderData() as User | null;
   const navigate = useNavigate();
+  const [, setUserId] = useRecoilState(userId);
 
   const onClick = () => {
     (async () => {
       try {
-        await fetch("/api/auth/checkOtp", {
+        const res = await fetch("/api/auth/checkOtp", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -23,6 +26,12 @@ export const CheckOtpPage = () => {
             otp
           })
         });
+
+        if (res.status !== 200) return;
+        const json = await res.json();
+        console.log(json);
+
+        setUserId(json.id);
 
         navigate("/");
       } catch (e) {
