@@ -49,3 +49,25 @@ export type GeneratePhase = {
     time: number;
   };
 };
+
+export type Format = string;
+export type Genre = string;
+export type Topic = {
+  format: string;
+  blanks: Genre[];
+};
+
+export type Question = {
+  topicForGuess: string;
+  resultImageUrl: string;
+};
+
+export type GuessPhase = {
+  phase: string;
+  state: {
+    playerStates: PlayerState[];
+    dealerPlayerId: string;
+    question: Question;
+    time: number;
+  };
+};

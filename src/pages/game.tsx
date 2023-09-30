@@ -7,11 +7,11 @@ import { TurnResultScreen } from "~/components/screens/TurnResultScreen";
 import { WaitingRoomScreen } from "~/components/screens/WaitingRoomScreen";
 import { PHASE } from "~/constant/constant";
 import { useMessage } from "~/hooks/use-message";
-import { GeneratePhase, WaitRoom } from "~/types";
+import { GeneratePhase, GuessPhase, WaitRoom } from "~/types";
 
 export const GamePage = () => {
   const [phaseState, setPhaseState] = useState<
-    WaitRoom | GeneratePhase | undefined
+    WaitRoom | GeneratePhase | GuessPhase | undefined
   >(undefined);
   const message = useMessage();
 
@@ -44,7 +44,8 @@ export const GamePage = () => {
     return (
       <ThemePromptScreen generatePhaseState={phaseState as GeneratePhase} />
     );
-  if (phaseState.phase === PHASE.guess) return <ResponseThemeScreen />;
+  if (phaseState.phase === PHASE.guess)
+    return <ResponseThemeScreen guessPhaseState={phaseState as GuessPhase} />;
   if (phaseState.phase === PHASE.showScore) return <ResponseCheckScreen />;
   if (phaseState.phase === PHASE.showCorrectAnswer) return <TurnResultScreen />;
   if (phaseState.phase === PHASE.ending) return <FinalResultScreen />;
