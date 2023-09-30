@@ -7,12 +7,33 @@ import { Timer } from "../Timer";
 import { TextInput } from "../TextInput";
 import { GeneratePhase } from "~/types";
 import { UserStatePropsFromPlayerState } from "../UserStatus";
+import { useState } from "react";
 
 type Props = {
   generatePhaseState: GeneratePhase;
 };
 
 export const ThemePromptScreen = ({ generatePhaseState }: Props) => {
+  const [input, setInput] = useState("");
+
+  const onSubmit = async () => {
+    console.log("input: ", input);
+    if (input === "") return;
+    const res = await fetch("/api/game/prompt", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        prompt: input
+      })
+    });
+
+    if (res.status !== 200) {
+      console.error(res.status);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -46,9 +67,15 @@ export const ThemePromptScreen = ({ generatePhaseState }: Props) => {
         </div>
         <label>
           画像生成指示
-          <TextInput placeholder="text" />
+          <TextInput
+            placeholder="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
         </label>
-        <Button>決定</Button>
+        <Button onClick={onSubmit} disabled={input === ""}>
+          決定
+        </Button>
       </div>
     </>
   );
