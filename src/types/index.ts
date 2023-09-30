@@ -21,6 +21,12 @@ export type Player = {
   iconImageUrl: string;
 };
 
+export type PlayerState = {
+  player: Player;
+  score: number;
+  isCompleted: boolean;
+};
+
 export type WaitRoom = {
   phase: string;
   state: {
@@ -33,5 +39,13 @@ export type WaitRoom = {
       ownerPlayerId: string;
     };
     players: Player[];
+  };
+};
+
+export type GeneratePhase = {
+  phase: string;
+  state: {
+    playerStates: PlayerState[];
+    time: number;
   };
 };

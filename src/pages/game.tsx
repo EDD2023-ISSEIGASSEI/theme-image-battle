@@ -7,10 +7,12 @@ import { TurnResultScreen } from "~/components/screens/TurnResultScreen";
 import { WaitingRoomScreen } from "~/components/screens/WaitingRoomScreen";
 import { PHASE } from "~/constant/constant";
 import { useMessage } from "~/hooks/use-message";
-import { waitRoom } from "~/types";
+import { GeneratePhase, WaitRoom } from "~/types";
 
 export const GamePage = () => {
-  const [phaseState, setPhaseState] = useState<waitRoom | undefined>(undefined);
+  const [phaseState, setPhaseState] = useState<
+    WaitRoom | GeneratePhase | undefined
+  >(undefined);
   const message = useMessage();
 
   useEffect(() => {
@@ -37,8 +39,11 @@ export const GamePage = () => {
 
   if (phaseState === undefined) return <div>loading...</div>;
   if (phaseState.phase === PHASE.waiting)
-    return <WaitingRoomScreen waitRoom={phaseState} />;
-  if (phaseState.phase === PHASE.generate) return <ThemePromptScreen />;
+    return <WaitingRoomScreen waitRoom={phaseState as WaitRoom} />;
+  if (phaseState.phase === PHASE.generate)
+    return (
+      <ThemePromptScreen generatePhaseState={phaseState as GeneratePhase} />
+    );
   if (phaseState.phase === PHASE.guess) return <ResponseThemeScreen />;
   if (phaseState.phase === PHASE.showScore) return <ResponseCheckScreen />;
   if (phaseState.phase === PHASE.showCorrectAnswer) return <TurnResultScreen />;

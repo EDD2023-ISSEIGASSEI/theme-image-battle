@@ -17,7 +17,7 @@ export const UserStatusList = ({ userStatusList }: UserStatusListProps) => {
               name={user.name}
               score={user.score}
               isAction={user.isAction}
-              role={user.role}
+              isDealer={user.isDealer}
             />
           </li>
         ))}

@@ -2,13 +2,27 @@ import { css } from "@emotion/react";
 import { CheckTag } from "./tags/CheckTag";
 import { ParentTag } from "./tags/ParentTag";
 import { colors } from "~/styles/themes/colors";
+import { PlayerState } from "~/types";
 
 export type UserStatusProps = {
   id: string;
   name: string;
   score: number;
   isAction: boolean;
-  role: "親" | "子";
+  isDealer: boolean;
+};
+
+export const UserStatePropsFromPlayerState = (
+  playerStates: PlayerState,
+  dealerId: string
+) => {
+  return {
+    id: playerStates.player.id,
+    name: playerStates.player.name,
+    score: playerStates.score,
+    isAction: playerStates.isCompleted,
+    isDealer: playerStates.player.id === dealerId
+  };
 };
 
 export const UserStatus = ({
@@ -16,7 +30,7 @@ export const UserStatus = ({
   name,
   score,
   isAction,
-  role
+  isDealer
 }: UserStatusProps) => {
   console.log("id: ", id);
 
@@ -26,7 +40,7 @@ export const UserStatus = ({
         <p>{name}</p>
         <p>{score}pt</p>
       </div>
-      {role === "親" ? (
+      {isDealer ? (
         <ParentTag />
       ) : isAction ? (
         <CheckTag isChecked={isAction} />

@@ -1,4 +1,3 @@
-import { USER_STATUS_LIST } from "~/data";
 import { Header } from "../Header";
 import { Divider } from "../Divider";
 import { Button } from "../Button";
@@ -6,8 +5,14 @@ import { css } from "@emotion/react";
 import { UserStatusList } from "../UserStatusList";
 import { Timer } from "../Timer";
 import { TextInput } from "../TextInput";
+import { GeneratePhase } from "~/types";
+import { UserStatePropsFromPlayerState } from "../UserStatus";
 
-export const ThemePromptScreen = () => {
+type Props = {
+  generatePhaseState: GeneratePhase;
+};
+
+export const ThemePromptScreen = ({ generatePhaseState }: Props) => {
   return (
     <>
       <Header />
@@ -15,7 +20,12 @@ export const ThemePromptScreen = () => {
         <div>
           <ul>
             <li>
-              <UserStatusList userStatusList={USER_STATUS_LIST} />
+              <UserStatusList
+                userStatusList={generatePhaseState.state.playerStates.map(
+                  (playerState) =>
+                    UserStatePropsFromPlayerState(playerState, "")
+                )}
+              />
             </li>
           </ul>
           <Divider direction="vertical" />
