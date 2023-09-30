@@ -15,7 +15,13 @@ export type Room = {
   playerNum: number;
 };
 
-export type waitRoom = {
+export type Player = {
+  id: string;
+  name: string;
+  iconImageUrl: string;
+};
+
+export type WaitRoom = {
   phase: string;
   state: {
     roomInfo: {
@@ -26,10 +32,6 @@ export type waitRoom = {
       maxPlayerNum: number;
       ownerPlayerId: string;
     };
-    players: {
-      id: string;
-      name: string;
-      iconImageUrl: string;
-    }[];
+    players: Player[];
   };
 };

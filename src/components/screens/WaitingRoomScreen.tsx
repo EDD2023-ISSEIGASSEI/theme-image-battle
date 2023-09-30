@@ -6,11 +6,11 @@ import { Button } from "../Button";
 import { SelectField } from "../SelectField";
 import { colors } from "~/styles/themes/colors";
 import { useLoaderData } from "react-router-dom";
-import { User, waitRoom } from "~/types";
+import { User, WaitRoom } from "~/types";
 import { useState } from "react";
 
 type Props = {
-  waitRoom: waitRoom;
+  waitRoom: WaitRoom;
 };
 
 export const WaitingRoomScreen = ({ waitRoom }: Props) => {
