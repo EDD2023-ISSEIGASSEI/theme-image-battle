@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 import { FinalResultScreen } from "~/components/screens/FinalResultScreen";
 import { ResponseCheckScreen } from "~/components/screens/ResponseCheckScreen";
 import { ResponseThemeScreen } from "~/components/screens/ResponseThemeScreen";
@@ -7,6 +8,7 @@ import { TurnResultScreen } from "~/components/screens/TurnResultScreen";
 import { WaitingRoomScreen } from "~/components/screens/WaitingRoomScreen";
 import { PHASE } from "~/constant/constant";
 import { useMessage } from "~/hooks/use-message";
+import { userId } from "~/state/user";
 import { GeneratePhase, GuessPhase, WaitRoom } from "~/types";
 
 export const GamePage = () => {
@@ -14,6 +16,7 @@ export const GamePage = () => {
     WaitRoom | GeneratePhase | GuessPhase | undefined
   >(undefined);
   const message = useMessage();
+  const [, setUserId] = useRecoilState(userId);
 
   useEffect(() => {
     const fetchPhaseState = async () => {
@@ -28,7 +31,20 @@ export const GamePage = () => {
       setPhaseState(json);
     };
 
+    const fetchUser = async () => {
+      const res = await fetch("/api/user", {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      const json = await res.json();
+      console.log("user", json);
+      setUserId(json.id);
+    };
+
     fetchPhaseState();
+    fetchUser();
   }, []);
 
   useEffect(() => {
