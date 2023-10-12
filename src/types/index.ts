@@ -71,3 +71,26 @@ export type GuessPhase = {
     time: number;
   };
 };
+
+export type Answer = {
+  player: Player;
+  blankAnswers: string[];
+  score: number;
+};
+
+export type AnswerForQuestion = {
+  dealerPlayerId: string;
+  questionImageUrl: string;
+  answer: Answer;
+};
+
+export type ShowScorePhase = {
+  phase: string;
+  state: {
+    playerStates: PlayerState[];
+    dealerPlayerId: string;
+    showingPlayerId: string;
+    question: Question;
+    playerAnswer: AnswerForQuestion;
+  };
+};

@@ -9,11 +9,11 @@ import { WaitingRoomScreen } from "~/components/screens/WaitingRoomScreen";
 import { PHASE } from "~/constant/constant";
 import { useMessage } from "~/hooks/use-message";
 import { userId } from "~/state/user";
-import { GeneratePhase, GuessPhase, WaitRoom } from "~/types";
+import { GeneratePhase, GuessPhase, ShowScorePhase, WaitRoom } from "~/types";
 
 export const GamePage = () => {
   const [phaseState, setPhaseState] = useState<
-    WaitRoom | GeneratePhase | GuessPhase | undefined
+    WaitRoom | GeneratePhase | GuessPhase | ShowScorePhase | undefined
   >(undefined);
   const message = useMessage();
   const [, setUserId] = useRecoilState(userId);
@@ -62,7 +62,10 @@ export const GamePage = () => {
     );
   if (phaseState.phase === PHASE.guess)
     return <ResponseThemeScreen guessPhaseState={phaseState as GuessPhase} />;
-  if (phaseState.phase === PHASE.showScore) return <ResponseCheckScreen />;
+  if (phaseState.phase === PHASE.showScore)
+    return (
+      <ResponseCheckScreen showScorePhaseState={phaseState as ShowScorePhase} />
+    );
   if (phaseState.phase === PHASE.showCorrectAnswer) return <TurnResultScreen />;
   if (phaseState.phase === PHASE.ending) return <FinalResultScreen />;
   return <div>loading...</div>;
